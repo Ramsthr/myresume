@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ramlal Suthar — Early Engineer · Mobile Platform / SDK · Full-Stack</title>
+    <title>Ramlal Suthar — Early Engineer · Full-Stack · SDK</title>
     <meta name="description"
-        content="Ramlal Suthar — Early engineer shipping end-to-end across mobile, backend, and infrastructure — from SDKs and server-driven UIs to APIs, DevOps, and cloud systems." />
+        content="Ramlal Suthar — Early engineer shipping end-to-end across mobile, backend, and infrastructure." />
     <meta property="og:title" content="Ramlal Suthar — Early Engineer" />
     <meta property="og:description"
-        content="Early engineer building full-stack products — mobile SDKs, backend APIs, infrastructure, and scalable systems at Digia." />
+        content="Early engineer building full-stack products — mobile SDKs, backend APIs, infrastructure, and scalable systems." />
     <meta property="og:type" content="website" />
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>⚡</text></svg>" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <style>
@@ -30,45 +30,43 @@
 
         :root {
             --bg: #ffffff;
-            --bg-secondary: #fafafa;
-            --bg-tertiary: #f5f5f5;
+            --bg-s: #f8f8f8;
+            --bg-t: #f0f0f0;
             --fg: #0a0a0a;
-            --fg-muted: #555;
-            --fg-subtle: #999;
-            --border: #e8e8e8;
-            --border-strong: #ccc;
+            --fg-m: #555;
+            --fg-s: #888;
+            --border: #e5e5e5;
+            --border-s: #d4d4d4;
             --accent: #0070f3;
-            --accent-glow: rgba(0, 112, 243, 0.12);
+            --accent-g: rgba(0, 112, 243, 0.08);
             --green: #22c55e;
-            --green-glow: rgba(34, 197, 94, 0.1);
+            --green-g: rgba(34, 197, 94, 0.08);
             --pill-bg: #f2f2f2;
-            --pill-hover: #e8e8e8;
-            --pill-border: #e0e0e0;
+            --pill-b: #e0e0e0;
+            --card: #fff;
             --header-bg: rgba(255, 255, 255, 0.82);
-            --card-bg: #ffffff;
-            --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04);
-            --sidebar-w: 180px;
+            --shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --radius: 12px;
         }
 
         [data-theme="dark"] {
             --bg: #09090b;
-            --bg-secondary: #0f0f11;
-            --bg-tertiary: #141416;
-            --fg: #f0f0f0;
-            --fg-muted: #8a8a8a;
-            --fg-subtle: #505050;
-            --border: #1c1c1e;
-            --border-strong: #2a2a2e;
+            --bg-s: #111113;
+            --bg-t: #19191b;
+            --fg: #fafafa;
+            --fg-m: #a0a0a0;
+            --fg-s: #5a5a5a;
+            --border: #1e1e20;
+            --border-s: #2a2a2e;
             --accent: #3b9eff;
-            --accent-glow: rgba(59, 158, 255, 0.08);
+            --accent-g: rgba(59, 158, 255, 0.08);
             --green: #4ade80;
-            --green-glow: rgba(74, 222, 128, 0.06);
+            --green-g: rgba(74, 222, 128, 0.06);
             --pill-bg: #151517;
-            --pill-hover: #1c1c1e;
-            --pill-border: #252528;
+            --pill-b: #252528;
+            --card: #111113;
             --header-bg: rgba(9, 9, 11, 0.82);
-            --card-bg: #111113;
-            --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.04);
+            --shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         html {
@@ -80,21 +78,21 @@
             background: var(--bg);
             color: var(--fg);
             font-size: 14px;
-            line-height: 1.6;
-            transition: background 0.3s ease, color 0.3s ease;
+            line-height: 1.65;
             -webkit-font-smoothing: antialiased;
+            transition: background .3s, color .3s;
         }
 
         a {
-            color: var(--fg);
+            color: inherit;
             text-decoration: none;
         }
 
-        /* ═══ ANIMATIONS ═══ */
+        /* ── Animations ── */
         @keyframes fadeUp {
             from {
                 opacity: 0;
-                transform: translateY(18px);
+                transform: translateY(16px);
             }
 
             to {
@@ -103,58 +101,36 @@
             }
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
         @keyframes pulse {
 
             0%,
             100% {
-                opacity: 1;
+                opacity: 1
             }
 
             50% {
-                opacity: .5;
+                opacity: .4
             }
         }
 
-        @keyframes gradientShift {
+        @keyframes gradient {
             0% {
-                background-position: 0% 50%;
+                background-position: 0% 50%
             }
 
             50% {
-                background-position: 100% 50%;
+                background-position: 100% 50%
             }
 
             100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-6px);
+                background-position: 0% 50%
             }
         }
 
         .reveal {
             opacity: 0;
-            transform: translateY(18px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(16px);
+            transition: opacity .5s ease, transform .5s ease;
         }
 
         .reveal.visible {
@@ -162,20 +138,8 @@
             transform: none;
         }
 
-        .delay-1 {
-            transition-delay: 0.1s;
-        }
-
-        .delay-2 {
-            transition-delay: 0.2s;
-        }
-
-        .delay-3 {
-            transition-delay: 0.3s;
-        }
-
-        /* ═══ HEADER ═══ */
-        header {
+        /* ── Header ── */
+        .header {
             position: fixed;
             top: 0;
             left: 0;
@@ -183,114 +147,72 @@
             z-index: 100;
             height: 52px;
             background: var(--header-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
-            padding: 0 24px;
-            gap: 12px;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .header-inner {
+            width: 100%;
+            max-width: 680px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .header-logo {
             display: flex;
             align-items: center;
             gap: 8px;
-            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: -.01em;
         }
 
         .logo-mark {
-            width: 26px;
-            height: 26px;
-            border-radius: 7px;
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
             background: linear-gradient(135deg, var(--accent), #7c3aed);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 13px;
+            font-size: 11px;
             color: #fff;
-            letter-spacing: -0.02em;
-        }
-
-        .logo-name {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--fg);
-            letter-spacing: -0.01em;
         }
 
         .header-spacer {
             flex: 1;
         }
 
-        .header-nav {
-            display: flex;
-            align-items: center;
-            gap: 1px;
-        }
-
-        .header-nav a {
-            font-size: 13px;
-            color: var(--fg-muted);
-            padding: 5px 10px;
-            border-radius: 6px;
-            transition: color 0.15s, background 0.15s;
-        }
-
-        .header-nav a:hover {
-            color: var(--fg);
-            background: var(--pill-bg);
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .icon-btn {
-            width: 32px;
-            height: 32px;
-            border-radius: 7px;
-            border: 1px solid var(--border);
-            background: transparent;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--fg-muted);
-            transition: all 0.15s;
-        }
-
-        .icon-btn:hover {
-            color: var(--fg);
-            background: var(--pill-bg);
-            border-color: var(--border-strong);
-        }
-
-        .cmd-btn {
+        .hdr-btn {
             height: 30px;
             padding: 0 10px;
             border-radius: 7px;
             border: 1px solid var(--border);
             background: transparent;
             cursor: pointer;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 6px;
             font-size: 12px;
-            color: var(--fg-muted);
+            color: var(--fg-m);
             font-family: inherit;
-            transition: all 0.15s;
+            transition: all .15s;
         }
 
-        .cmd-btn:hover {
+        .hdr-btn:hover {
             color: var(--fg);
             background: var(--pill-bg);
+            border-color: var(--border-s);
         }
 
-        .cmd-btn kbd {
+        .hdr-btn kbd {
             font-size: 10px;
             font-family: 'JetBrains Mono', monospace;
             background: var(--pill-bg);
@@ -299,256 +221,105 @@
             padding: 1px 5px;
         }
 
-        /* ═══ LAYOUT ═══ */
-        .layout {
-            display: flex;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding-top: 52px;
-            padding-left: 24px;
-            padding-right: 24px;
-        }
-
-        .sidebar {
-            width: var(--sidebar-w);
-            flex-shrink: 0;
-            position: sticky;
-            top: 52px;
-            height: calc(100vh - 52px);
-            overflow-y: auto;
-            padding: 32px 16px 32px 0;
-            border-right: 1px solid var(--border);
-        }
-
-        .sidebar-nav {
-            display: flex;
-            flex-direction: column;
-            gap: 1px;
-        }
-
-        .sidebar-nav a {
-            font-size: 13px;
-            color: var(--fg-muted);
-            padding: 6px 10px;
-            border-radius: 6px;
-            transition: color 0.15s, background 0.15s;
-            display: block;
-        }
-
-        .sidebar-nav a:hover {
-            color: var(--fg);
-            background: var(--pill-bg);
-        }
-
-        .sidebar-nav a.active {
-            color: var(--fg);
-            background: var(--pill-bg);
-            font-weight: 500;
-        }
-
-        main {
-            flex: 1;
-            min-width: 0;
-            padding: 0 0 80px 48px;
-        }
-
-        /* ═══ HERO ═══ */
-        .hero {
-            padding: 56px 0 42px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 4px 12px 4px 6px;
-            border-radius: 100px;
+        .icon-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 7px;
             border: 1px solid var(--border);
-            background: var(--bg-secondary);
-            font-size: 12px;
-            color: var(--fg-muted);
-            margin-bottom: 20px;
-            animation: fadeIn 0.8s ease both;
-        }
-
-        .hero-badge-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--green);
-            animation: pulse 2s ease-in-out infinite;
-            flex-shrink: 0;
-        }
-
-        .hero-heading {
-            font-size: clamp(22px, 3vw, 32px);
-            font-weight: 700;
-            line-height: 1.3;
-            letter-spacing: -0.025em;
-            margin-bottom: 18px;
-            max-width: 700px;
-            animation: fadeUp 0.8s ease both 0.1s;
-        }
-
-        .hero-heading em {
-            font-style: italic;
-            background: linear-gradient(135deg, var(--accent), #a855f7, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            background-size: 200% 200%;
-            animation: gradientShift 4s ease infinite;
-        }
-
-        .hero-intro {
-            font-size: 15px;
-            color: var(--fg-muted);
-            line-height: 1.75;
-            max-width: 600px;
-            animation: fadeUp 0.8s ease both 0.2s;
-        }
-
-        .hero-intro strong {
-            color: var(--fg);
-            font-weight: 600;
-        }
-
-        .hero-intro a {
-            color: var(--fg);
-            font-weight: 600;
-            text-decoration: underline;
-            text-decoration-color: var(--accent);
-            text-underline-offset: 3px;
-            transition: color 0.15s;
-        }
-
-        .hero-intro a:hover {
-            color: var(--accent);
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 24px;
-            animation: fadeUp 0.8s ease both 0.3s;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            padding: 9px 18px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 500;
-            background: var(--fg);
-            color: var(--bg);
-            border: none;
-            cursor: pointer;
-            transition: opacity 0.15s;
-            font-family: inherit;
-            text-decoration: none;
-        }
-
-        .btn-primary:hover {
-            opacity: 0.85;
-            color: var(--bg);
-        }
-
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            padding: 9px 18px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 500;
             background: transparent;
-            color: var(--fg);
-            border: 1px solid var(--border);
             cursor: pointer;
-            transition: background 0.15s, border-color 0.15s;
-            font-family: inherit;
-            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--fg-m);
+            transition: all .15s;
         }
 
-        .btn-secondary:hover {
-            background: var(--pill-bg);
-            border-color: var(--border-strong);
+        .icon-btn:hover {
             color: var(--fg);
+            background: var(--pill-bg);
         }
 
-        /* ═══ IMPACT BAR ═══ */
-        .impact-bar {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1px;
-            margin-top: 32px;
-            border-radius: 14px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            background: var(--border);
-            animation: fadeUp 0.8s ease both 0.4s;
+        /* ── Main / Container ── */
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 76px 20px 60px;
         }
 
-        .impact-stat {
+        /* ── Profile ── */
+        .profile {
             display: flex;
             flex-direction: column;
-            gap: 4px;
-            padding: 20px;
-            background: var(--bg-secondary);
+            align-items: center;
+            text-align: center;
+            padding: 32px 0 0;
         }
 
-        .impact-num {
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            background: linear-gradient(135deg, var(--fg) 30%, var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .impact-lbl {
-            font-size: 11.5px;
-            color: var(--fg-subtle);
-            line-height: 1.4;
-        }
-
-        /* ═══ HIRING BANNER ═══ */
-        .hiring-banner {
-            margin-top: 28px;
-            padding: 16px 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(34, 197, 94, 0.25);
-            background: var(--green-glow);
+        .avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--border);
+            position: relative;
+            background: linear-gradient(135deg, var(--accent), #7c3aed, #ec4899);
             display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            animation: fadeUp 0.8s ease both 0.5s;
+            align-items: center;
+            justify-content: center;
+            animation: fadeUp .6s ease both;
         }
 
-        .hiring-banner svg {
-            flex-shrink: 0;
-            margin-top: 1px;
-            color: var(--green);
+        .avatar-text {
+            font-size: 32px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -.03em;
         }
 
-        .hiring-banner-text {
-            font-size: 13.5px;
-            color: var(--fg-muted);
-            line-height: 1.6;
+        .verified {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            width: 22px;
+            height: 22px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 2px solid var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .hiring-banner-text strong {
+        .verified svg {
+            width: 12px;
+            height: 12px;
+            color: #fff;
+        }
+
+        .profile-name {
+            font-size: 22px;
+            font-weight: 700;
+            margin-top: 14px;
+            letter-spacing: -.02em;
+            animation: fadeUp .6s ease both .1s;
+        }
+
+        .profile-title {
+            font-size: 14px;
+            color: var(--fg-m);
+            margin-top: 4px;
+            animation: fadeUp .6s ease both .2s;
+        }
+
+        .profile-title strong {
             color: var(--fg);
+            font-weight: 600;
         }
 
-        /* ═══ SECTIONS ═══ */
+        /* ── Section ── */
         .section {
-            padding: 44px 0;
+            padding: 36px 0;
             border-bottom: 1px solid var(--border);
         }
 
@@ -557,77 +328,104 @@
         }
 
         .section-title {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--fg-subtle);
-            margin-bottom: 22px;
+            letter-spacing: .08em;
+            color: var(--fg-s);
+            margin-bottom: 16px;
         }
 
-        /* ═══ OVERVIEW ═══ */
-        .overview-grid {
+        /* ── Overview Grid ── */
+        .ov-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 8px;
         }
 
-        .overview-card {
+        .ov-card {
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 12px 14px;
+            padding: 10px 14px;
             border-radius: 10px;
             border: 1px solid var(--border);
-            background: var(--card-bg);
-            transition: border-color 0.15s, background 0.15s;
+            background: var(--card);
+            transition: border-color .15s;
         }
 
-        .overview-card:hover {
-            border-color: var(--border-strong);
-            background: var(--bg-secondary);
+        .ov-card:hover {
+            border-color: var(--border-s);
         }
 
-        .overview-card svg {
+        .ov-card svg {
             flex-shrink: 0;
-            color: var(--fg-subtle);
+            color: var(--fg-s);
+            width: 15px;
+            height: 15px;
         }
 
-        .overview-card-content {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .overview-card-label {
-            font-size: 10.5px;
-            color: var(--fg-subtle);
+        .ov-label {
+            font-size: 10px;
+            color: var(--fg-s);
             text-transform: uppercase;
-            letter-spacing: 0.06em;
+            letter-spacing: .05em;
             font-weight: 500;
         }
 
-        .overview-card-value {
-            font-size: 13.5px;
-            color: var(--fg);
+        .ov-value {
+            font-size: 13px;
             font-weight: 500;
         }
 
-        .overview-card-value a {
+        .ov-value a {
             color: var(--accent);
-            text-decoration: none;
-            transition: opacity 0.15s;
+            transition: opacity .15s;
         }
 
-        .overview-card-value a:hover {
-            opacity: 0.8;
+        .ov-value a:hover {
+            opacity: .8;
         }
 
-        /* ═══ ABOUT ═══ */
+        /* ── Social Links ── */
+        .social-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 8px 14px;
+            border-radius: 9px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--fg);
+            transition: all .2s;
+        }
+
+        .social-link:hover {
+            border-color: var(--border-s);
+            background: var(--bg-s);
+            transform: translateY(-1px);
+        }
+
+        .social-link svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+
+        /* ── About ── */
         .about-list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 7px;
+            gap: 6px;
         }
 
         .about-list li {
@@ -639,110 +437,92 @@
         }
 
         .about-list li::before {
-            content: '▸';
+            content: '•';
             position: absolute;
             left: 0;
-            color: var(--accent);
+            color: var(--fg-m);
             font-weight: 600;
         }
 
-        .about-list li.sub {
-            padding-left: 32px;
-            color: var(--fg-muted);
+        .about-list .sub {
+            padding-left: 28px;
+            color: var(--fg-m);
         }
 
-        .about-list li.sub::before {
-            left: 16px;
+        .about-list .sub::before {
+            left: 12px;
             content: '–';
-            color: var(--fg-subtle);
         }
 
-        /* ═══ STACK ═══ */
-        .stack-categories {
-            display: flex;
-            flex-direction: column;
-            gap: 22px;
-        }
-
-        .stack-cat-label {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--fg-subtle);
-            margin-bottom: 8px;
-        }
-
-        .stack-grid {
+        /* ── Stack ── */
+        .stack-wrap {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 7px;
         }
 
         .stack-pill {
             display: inline-flex;
             align-items: center;
-            gap: 7px;
-            padding: 6px 13px;
+            gap: 6px;
+            padding: 5px 12px;
             border-radius: 8px;
-            border: 1px solid var(--pill-border);
-            background: var(--card-bg);
-            font-size: 13px;
+            border: 1px solid var(--pill-b);
+            background: var(--card);
+            font-size: 12.5px;
             color: var(--fg);
+            transition: all .2s;
+            box-shadow: var(--shadow);
             text-decoration: none;
-            transition: all 0.2s;
-            box-shadow: var(--card-shadow);
         }
 
         .stack-pill:hover {
             transform: translateY(-2px);
             border-color: var(--accent);
-            box-shadow: 0 4px 12px var(--accent-glow);
+            box-shadow: 0 4px 12px var(--accent-g);
             color: var(--fg);
         }
 
         .stack-pill i {
-            font-size: 16px;
+            font-size: 15px;
         }
 
-        .stack-pill img {
-            width: 16px;
-            height: 16px;
-            border-radius: 2px;
+        .stack-pill svg {
+            width: 13px;
+            height: 13px;
         }
 
-        /* ═══ EXPERIENCE ═══ */
+        /* ── Experience ── */
         .exp-list {
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 28px;
         }
 
-        .exp-item {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            padding: 20px;
-            border-radius: 14px;
+        .exp-card {
             border: 1px solid var(--border);
-            background: var(--card-bg);
-            transition: border-color 0.2s;
+            border-radius: var(--radius);
+            background: var(--card);
+            overflow: hidden;
+            transition: border-color .2s;
         }
 
-        .exp-item:hover {
-            border-color: var(--border-strong);
+        .exp-card:hover {
+            border-color: var(--border-s);
         }
 
-        .exp-header {
+        .exp-card-header {
             display: flex;
             align-items: center;
             gap: 10px;
-            flex-wrap: wrap;
+            padding: 16px 18px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-s);
         }
 
-        .exp-company-logo {
-            width: 36px;
-            height: 36px;
+        .exp-logo {
+            width: 34px;
+            height: 34px;
             border-radius: 8px;
             background: linear-gradient(135deg, var(--accent), #7c3aed);
             display: flex;
@@ -754,67 +534,61 @@
             flex-shrink: 0;
         }
 
-        .exp-company-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .exp-company-name {
-            font-size: 13px;
+        .exp-company {
+            font-size: 14px;
             font-weight: 600;
-            color: var(--fg);
         }
 
         .exp-company-sub {
             font-size: 11.5px;
-            color: var(--fg-subtle);
+            color: var(--fg-s);
         }
 
-        .badge {
+        .badge-current {
+            margin-left: auto;
             display: inline-flex;
             align-items: center;
             gap: 5px;
             font-size: 10.5px;
             padding: 2px 9px;
             border-radius: 100px;
-            border: 1px solid var(--border);
-            color: var(--fg-muted);
-            background: var(--pill-bg);
-            font-weight: 500;
-            margin-left: auto;
-        }
-
-        .badge-green {
-            border-color: rgba(34, 197, 94, 0.35);
+            border: 1px solid rgba(34, 197, 94, 0.3);
             color: var(--green);
-            background: var(--green-glow);
+            background: var(--green-g);
+            font-weight: 500;
         }
 
-        .badge-green::before {
+        .badge-current::before {
             content: '';
             width: 5px;
             height: 5px;
             border-radius: 50%;
             background: var(--green);
-            animation: pulse 2s ease-in-out infinite;
+            animation: pulse 2s infinite;
         }
 
-        .exp-role {
-            font-size: 16px;
+        .exp-role-block {
+            padding: 14px 18px;
+        }
+
+        .exp-role-block+.exp-role-block {
+            border-top: 1px solid var(--border);
+        }
+
+        .exp-role-title {
+            font-size: 15px;
             font-weight: 700;
-            color: var(--fg);
+            margin-bottom: 4px;
         }
 
         .exp-meta {
             display: flex;
-            align-items: center;
             flex-wrap: wrap;
-            gap: 8px;
-            font-size: 12px;
-            color: var(--fg-muted);
+            gap: 6px;
+            margin-bottom: 10px;
         }
 
-        .exp-meta-tag {
+        .exp-tag {
             display: inline-flex;
             align-items: center;
             gap: 4px;
@@ -822,9 +596,10 @@
             border-radius: 5px;
             background: var(--pill-bg);
             font-size: 11px;
+            color: var(--fg-m);
         }
 
-        .exp-meta-tag svg {
+        .exp-tag svg {
             width: 11px;
             height: 11px;
         }
@@ -833,96 +608,106 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 4px;
+            margin-bottom: 10px;
         }
 
         .exp-bullets li {
-            font-size: 13.5px;
+            font-size: 13px;
             line-height: 1.7;
-            padding-left: 16px;
+            padding-left: 14px;
             position: relative;
-            color: var(--fg);
         }
 
         .exp-bullets li::before {
             content: '•';
             position: absolute;
             left: 0;
-            color: var(--fg-muted);
+            color: var(--fg-s);
         }
 
         .exp-bullets li.sub {
-            padding-left: 32px;
-            color: var(--fg-muted);
+            padding-left: 26px;
+            color: var(--fg-m);
         }
 
         .exp-bullets li.sub::before {
-            left: 16px;
+            left: 12px;
         }
 
         .exp-bullets strong {
-            color: var(--fg);
             font-weight: 600;
+            color: var(--fg);
         }
 
         .tech-pills {
             display: flex;
             flex-wrap: wrap;
-            gap: 5px;
-            margin-top: 4px;
+            gap: 4px;
         }
 
         .tech-pill {
             font-size: 11px;
-            padding: 2px 9px;
+            padding: 2px 8px;
             border-radius: 5px;
-            border: 1px solid var(--pill-border);
+            border: 1px solid var(--pill-b);
             background: var(--pill-bg);
-            color: var(--fg-muted);
+            color: var(--fg-m);
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* ═══ PROJECTS ═══ */
+        /* ── Projects ── */
         .proj-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            display: flex;
+            flex-direction: column;
             gap: 14px;
         }
 
         .proj-card {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            padding: 20px;
-            border-radius: 14px;
+            padding: 18px;
+            border-radius: var(--radius);
             border: 1px solid var(--border);
-            background: var(--card-bg);
-            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+            background: var(--card);
+            transition: border-color .2s, transform .2s;
         }
 
         .proj-card:hover {
-            border-color: var(--border-strong);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border-color: var(--border-s);
+            transform: translateY(-2px);
         }
 
-        [data-theme="dark"] .proj-card:hover {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-        }
-
-        .proj-header {
+        .proj-head {
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
             gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .proj-name {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .proj-period {
+            font-size: 11px;
+            color: var(--fg-s);
+            margin-bottom: 8px;
+        }
+
+        .proj-desc {
+            font-size: 13px;
+            color: var(--fg-m);
+            line-height: 1.65;
+            margin-bottom: 10px;
         }
 
         .proj-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            background: var(--accent-glow);
-            border: 1px solid rgba(0, 112, 243, 0.15);
+            width: 28px;
+            height: 28px;
+            border-radius: 7px;
+            background: var(--accent-g);
+            border: 1px solid rgba(0, 112, 243, 0.12);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -930,44 +715,24 @@
             flex-shrink: 0;
         }
 
-        .proj-name {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--fg);
-            margin-bottom: 4px;
-        }
-
-        .proj-period {
-            font-size: 11px;
-            color: var(--fg-subtle);
-        }
-
-        .proj-desc {
-            font-size: 13px;
-            color: var(--fg-muted);
-            line-height: 1.6;
-        }
-
-        /* ═══ EDUCATION ═══ */
-        .edu-item {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            padding: 20px;
-            border-radius: 14px;
+        /* ── Education ── */
+        .edu-card {
+            padding: 18px;
+            border-radius: var(--radius);
             border: 1px solid var(--border);
-            background: var(--card-bg);
+            background: var(--card);
         }
 
-        .edu-header {
+        .edu-head {
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-bottom: 8px;
         }
 
         .edu-icon {
-            width: 36px;
-            height: 36px;
+            width: 34px;
+            height: 34px;
             border-radius: 8px;
             background: linear-gradient(135deg, #f59e0b, #ef4444);
             display: flex;
@@ -980,105 +745,111 @@
         .edu-degree {
             font-size: 15px;
             font-weight: 700;
-            color: var(--fg);
         }
 
         .edu-school {
-            font-size: 13.5px;
-            color: var(--fg-muted);
+            font-size: 13px;
+            color: var(--fg-m);
         }
 
         .edu-meta {
-            font-size: 12px;
-            color: var(--fg-subtle);
             display: flex;
             gap: 10px;
-            flex-wrap: wrap;
             align-items: center;
+            flex-wrap: wrap;
+            font-size: 12px;
+            color: var(--fg-s);
         }
 
         .edu-cgpa {
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            font-size: 11.5px;
+            font-size: 11px;
             padding: 3px 10px;
             border-radius: 100px;
             font-weight: 600;
             border: 1px solid rgba(0, 112, 243, 0.2);
             color: var(--accent);
-            background: var(--accent-glow);
+            background: var(--accent-g);
         }
 
-        /* ═══ CONTACT ═══ */
+        /* ── Contact ── */
         .contact-heading {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
 
-        .contact-subtext {
-            font-size: 14px;
-            color: var(--fg-muted);
-            margin-bottom: 18px;
+        .contact-sub {
+            font-size: 13.5px;
+            color: var(--fg-m);
+            margin-bottom: 16px;
         }
 
-        .contact-links {
+        .contact-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .contact-link {
-            display: inline-flex;
-            align-items: center;
             gap: 8px;
-            padding: 10px 16px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            font-size: 13.5px;
-            color: var(--fg);
-            background: var(--card-bg);
-            transition: all 0.2s;
         }
 
-        .contact-link:hover {
-            border-color: var(--accent);
-            background: var(--accent-glow);
-            transform: translateY(-2px);
-            color: var(--fg);
-        }
-
-        .contact-link svg {
-            flex-shrink: 0;
-        }
-
-        /* ═══ FOOTER ═══ */
-        footer {
+        /* ── Footer ── */
+        .footer {
+            padding: 24px 0;
             border-top: 1px solid var(--border);
-            padding: 20px 0;
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 8px;
             font-size: 12px;
-            color: var(--fg-subtle);
+            color: var(--fg-s);
         }
 
-        footer a {
-            color: var(--fg-muted);
+        .footer a {
+            color: var(--fg-m);
+            transition: color .15s;
         }
 
-        footer a:hover {
+        .footer a:hover {
             color: var(--fg);
         }
 
-        /* ═══ CMD PALETTE ═══ */
+        /* ── Scroll Top ── */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            color: var(--fg-m);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+            z-index: 50;
+            transition: all .2s;
+        }
+
+        .scroll-top.show {
+            display: flex;
+        }
+
+        .scroll-top:hover {
+            background: var(--pill-bg);
+            color: var(--fg);
+            transform: translateY(-2px);
+        }
+
+        /* ── Command Palette ── */
         .cmd-overlay {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, .5);
             z-index: 200;
             padding: 70px 16px;
             backdrop-filter: blur(6px);
@@ -1092,24 +863,24 @@
 
         .cmd-box {
             width: 100%;
-            max-width: 520px;
+            max-width: 500px;
             background: var(--bg);
-            border: 1px solid var(--border-strong);
+            border: 1px solid var(--border-s);
             border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, .3);
         }
 
         .cmd-search {
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 14px 16px;
+            padding: 13px 14px;
             border-bottom: 1px solid var(--border);
         }
 
         .cmd-search svg {
-            color: var(--fg-subtle);
+            color: var(--fg-s);
             flex-shrink: 0;
         }
 
@@ -1124,35 +895,35 @@
         }
 
         .cmd-input::placeholder {
-            color: var(--fg-subtle);
+            color: var(--fg-s);
         }
 
         .cmd-items {
             list-style: none;
             padding: 6px;
-            max-height: 340px;
+            max-height: 320px;
             overflow-y: auto;
         }
 
         .cmd-section {
             font-size: 10px;
             font-weight: 600;
-            color: var(--fg-subtle);
+            color: var(--fg-s);
             padding: 10px 10px 4px;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: .08em;
         }
 
         .cmd-item {
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 9px 10px;
+            padding: 8px 10px;
             border-radius: 8px;
             cursor: pointer;
             font-size: 13px;
             color: var(--fg);
-            transition: background 0.1s;
+            transition: background .1s;
         }
 
         .cmd-item:hover {
@@ -1160,82 +931,22 @@
         }
 
         .cmd-item svg {
-            color: var(--fg-muted);
+            color: var(--fg-m);
             flex-shrink: 0;
         }
 
-        /* ═══ SCROLL TOP ═══ */
-        .scroll-top {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            background: var(--bg);
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            color: var(--fg-muted);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            z-index: 50;
-            transition: all 0.2s;
-        }
-
-        .scroll-top.show {
-            display: flex;
-        }
-
-        .scroll-top:hover {
-            background: var(--pill-bg);
-            color: var(--fg);
-            transform: translateY(-2px);
-        }
-
-        /* ═══ RESPONSIVE ═══ */
-        @media (max-width: 768px) {
-            .sidebar {
-                display: none;
+        /* ── Responsive ── */
+        @media(max-width:640px) {
+            .container {
+                padding: 68px 16px 40px;
             }
 
-            main {
-                padding: 0 0 60px;
-            }
-
-            .layout {
-                padding: 52px 16px 0;
-            }
-
-            .header-nav {
-                display: none;
-            }
-
-            header {
-                padding: 0 16px;
-            }
-
-            .proj-list {
+            .ov-grid {
                 grid-template-columns: 1fr;
             }
 
-            .overview-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-heading {
+            .profile-name {
                 font-size: 20px;
-            }
-
-            .impact-bar {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .exp-item {
-                padding: 16px;
             }
         }
     </style>
@@ -1243,7 +954,7 @@
 
 <body>
 
-    <!-- ═══ COMMAND PALETTE ═══ -->
+    <!-- ── COMMAND PALETTE ── -->
     <div class="cmd-overlay" id="cmdOverlay" role="dialog" aria-modal="true" aria-label="Command Palette">
         <div class="cmd-box">
             <div class="cmd-search">
@@ -1315,22 +1026,14 @@
         </div>
     </div>
 
-    <!-- ═══ HEADER ═══ -->
-    <header>
-        <a href="#" class="header-logo">
-            <span class="logo-mark">RS</span>
-            <span class="logo-name">ramlal suthar</span>
-        </a>
-        <div class="header-spacer"></div>
-        <nav class="header-nav">
-            <a href="#overview">Overview</a>
-            <a href="#stack">Stack</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#education">Education</a>
-            <a href="#contact">Contact</a>
-        </nav>
-        <div class="header-actions">
+    <!-- ── HEADER ── -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="#" class="header-logo">
+                <span class="logo-mark">RS</span>
+                <span>ramlal suthar</span>
+            </a>
+            <div class="header-spacer"></div>
             <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">
                 <svg id="iconSun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     stroke-width="2" style="display:none">
@@ -1349,603 +1052,477 @@
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
                 </svg>
             </button>
-            <button class="cmd-btn" id="cmdBtn"><span>Search</span><kbd>⌘K</kbd></button>
+            <button class="hdr-btn" id="cmdBtn"><span>Search</span><kbd>⌘K</kbd></button>
         </div>
     </header>
 
-    <!-- ═══ LAYOUT ═══ -->
-    <div class="layout">
-        <aside class="sidebar">
-            <nav class="sidebar-nav">
-                <a href="#overview" class="active">Overview</a>
-                <a href="#about">About</a>
-                <a href="#stack">Stack</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#education">Education</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </aside>
+    <!-- ── MAIN ── -->
+    <div class="container">
 
-        <main>
-
-            <!-- ── HERO ── -->
-            <section class="hero">
-                <div class="hero-badge">
-                    <span class="hero-badge-dot"></span>
-                    Open to opportunities
-                </div>
-                <h1 class="hero-heading">
-                    building <em>products end-to-end</em> — from mobile SDKs &amp; server-driven UIs to backend
-                    services, infrastructure &amp; everything in between
-                </h1>
-                <p class="hero-intro">
-                    I'm <strong>Ramlal Suthar</strong>, an early engineer at <a href="https://digia.tech"
-                        target="_blank" rel="noopener">Digia</a> — I ship across the full stack: mobile platforms,
-                    frontend, backend APIs, DevOps pipelines, and cloud infrastructure. From first commit to production.
-                </p>
-                <div class="hero-actions">
-                    <a class="btn-primary" href="mailto:ramsthr38@gmail.com">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                            <polyline points="22,6 12,13 2,6" />
-                        </svg>
-                        Get in touch
-                    </a>
-                    <a class="btn-secondary" href="https://github.com/ramlalsuthar03" target="_blank" rel="noopener">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.8-.26.8-.57v-2.23c-3.34.72-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 6.8c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
-                        </svg>
-                        View GitHub
-                    </a>
-                    <a class="btn-secondary" href="https://digia.tech" target="_blank" rel="noopener">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                            <polyline points="15 3 21 3 21 9" />
-                            <line x1="10" y1="14" x2="21" y2="3" />
-                        </svg>
-                        digia.tech
-                    </a>
-                </div>
-
-                <div class="impact-bar">
-                    <div class="impact-stat">
-                        <span class="impact-num">Early Engineer</span>
-                        <span class="impact-lbl">joined pre-product, built from zero</span>
-                    </div>
-                    <div class="impact-stat">
-                        <span class="impact-num">Fast Builder</span>
-                        <span class="impact-lbl">ship production systems, fast</span>
-                    </div>
-                    <div class="impact-stat">
-                        <span class="impact-num">Full-Stack</span>
-                        <span class="impact-lbl">mobile · backend · infra · DevOps</span>
-                    </div>
-                    <div class="impact-stat">
-                        <span class="impact-num">0 → 1 Mindset</span>
-                        <span class="impact-lbl">thrive in ambiguity &amp; ownership</span>
-                    </div>
-                </div>
-
-                <div class="hiring-banner">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                        <polyline points="22 4 12 14.01 9 11.01" />
+        <!-- Profile -->
+        <div class="profile">
+            <div class="avatar">
+                <span class="avatar-text">RS</span>
+                <div class="verified">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="20 6 9 17 4 12" />
                     </svg>
-                    <div class="hiring-banner-text">
-                        <strong>Why hire me?</strong> I thrive in <strong>0→1 environments</strong> — I built Digia's
-                        entire mobile SDK platform from scratch, shipped a Jetpack Compose SDK in 2 weeks, and
-                        consistently turn ambiguity into production-grade systems. I bring <strong>high execution
-                            velocity</strong>, deep cross-platform expertise, and a startup operator mindset.
+                </div>
+            </div>
+            <h1 class="profile-name">Ramlal Suthar</h1>
+            <p class="profile-title">Early Engineer @ <strong>Digia</strong></p>
+        </div>
+
+        <!-- Overview -->
+        <section class="section reveal" id="overview">
+            <h2 class="section-title">Overview</h2>
+            <div class="ov-grid">
+                <div class="ov-card">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="2" y="7" width="20" height="14" rx="2" />
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                    </svg>
+                    <div>
+                        <div class="ov-label">Role</div>
+                        <div class="ov-value">Early Engineer @ <a href="https://digia.tech" target="_blank"
+                                rel="noopener">Digia</a></div>
                     </div>
                 </div>
-            </section>
-
-            <!-- ── OVERVIEW ── -->
-            <section class="section reveal" id="overview">
-                <h2 class="section-title">Overview</h2>
-                <div class="overview-grid">
-                    <div class="overview-card">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <rect x="2" y="7" width="20" height="14" rx="2" />
-                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                        </svg>
-                        <div class="overview-card-content">
-                            <span class="overview-card-label">Role</span>
-                            <span class="overview-card-value">Early Engineer @ <a href="https://digia.tech"
-                                    target="_blank" rel="noopener">Digia</a></span>
-                        </div>
+                <div class="ov-card">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                        <circle cx="12" cy="9" r="2.5" />
+                    </svg>
+                    <div>
+                        <div class="ov-label">Location</div>
+                        <div class="ov-value">India</div>
                     </div>
-                    <div class="overview-card">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-                            <circle cx="12" cy="9" r="2.5" />
-                        </svg>
-                        <div class="overview-card-content">
-                            <span class="overview-card-label">Location</span>
-                            <span class="overview-card-value">India</span>
-                        </div>
+                </div>
+                <div class="ov-card">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    <div>
+                        <div class="ov-label">Call</div>
+                        <div class="ov-value"><a href="tel:+917232841614">+91 7232841614</a></div>
                     </div>
-                    <div class="overview-card">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                            <rect x="2" y="9" width="4" height="12" />
-                            <circle cx="4" cy="4" r="2" />
-                        </svg>
-                        <div class="overview-card-content">
-                            <span class="overview-card-label">LinkedIn</span>
-                            <span class="overview-card-value"><a href="https://linkedin.com/in/ramlal-suthar"
-                                    target="_blank" rel="noopener">Ramlal Suthar</a></span>
-                        </div>
+                </div>
+                <div class="ov-card">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    <div>
+                        <div class="ov-label">Email</div>
+                        <div class="ov-value"><a href="mailto:ramsthr38@gmail.com">ramsthr38@gmail.com</a></div>
                     </div>
-                    <div class="overview-card">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                            <polyline points="22,6 12,13 2,6" />
-                        </svg>
-                        <div class="overview-card-content">
-                            <span class="overview-card-label">Email</span>
-                            <span class="overview-card-value"><a
-                                    href="mailto:ramsthr38@gmail.com">ramsthr38@gmail.com</a></span>
-                        </div>
-                    </div>
-                    <div class="overview-card">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <path
-                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-                        </svg>
-                        <div class="overview-card-content">
-                            <span class="overview-card-label">Phone</span>
-                            <span class="overview-card-value">+91 7232841614</span>
-                        </div>
-                    </div>
-                    <div class="overview-card">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                            <polyline points="15 3 21 3 21 9" />
-                            <line x1="10" y1="14" x2="21" y2="3" />
-                        </svg>
-                        <div class="overview-card-content">
-                            <span class="overview-card-label">Company</span>
-                            <span class="overview-card-value"><a href="https://digia.tech" target="_blank"
-                                    rel="noopener">digia.tech</a></span>
+                </div>
+                <div class="ov-card">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                    <div>
+                        <div class="ov-label">Website</div>
+                        <div class="ov-value"><a href="https://digia.tech" target="_blank" rel="noopener">digia.tech</a>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- ── ABOUT ── -->
-            <section class="section reveal" id="about">
-                <h2 class="section-title">About</h2>
-                <ul class="about-list">
-                    <li>early engineer with end-to-end ownership of mobile platforms and SDKs, specializing in
-                        server-driven UI architectures and scalable system design</li>
-                    <li>strong expertise across Flutter, Android (Jetpack Compose), Go, and full-stack development —
-                        shipped production systems across all</li>
-                    <li>proven track record of building reusable component libraries, SDKs, and backend services from
-                        the ground up</li>
-                    <li>experienced in AWS, Firebase, RESTful API design, and CI/CD pipelines</li>
-                    <li>known for high execution velocity, strong ownership, and shipping reliable systems in
-                        fast-moving startup environments</li>
-                    <li class="sub">deep interest in payment workflows, large-scale distributed systems, and
-                        infrastructure reliability</li>
-                </ul>
-            </section>
+        <!-- Social Links -->
+        <section class="section reveal" id="social">
+            <h2 class="section-title">Social Links</h2>
+            <div class="social-row">
+                <a class="social-link" href="https://github.com/ramlalsuthar03" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.8-.26.8-.57v-2.23c-3.34.72-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 6.8c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
+                    GitHub
+                </a>
+                <a class="social-link" href="https://linkedin.com/in/ramlal-suthar" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43A2.06 2.06 0 1 1 5.34 3.3a2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
+                    </svg>
+                    LinkedIn
+                </a>
+                <a class="social-link" href="mailto:ramsthr38@gmail.com">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    Email
+                </a>
+                <a class="social-link" href="https://digia.tech" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                    digia.tech
+                </a>
+            </div>
+        </section>
 
-            <!-- ── STACK ── -->
-            <section class="section reveal" id="stack">
-                <h2 class="section-title">Stack</h2>
-                <div class="stack-categories">
+        <!-- About -->
+        <section class="section reveal" id="about">
+            <h2 class="section-title">About</h2>
+            <ul class="about-list">
+                <li>Early engineer with end-to-end ownership across the full stack — mobile platforms, SDKs, backend
+                    services, cloud infrastructure, and DevOps pipelines</li>
+                <li>Strong expertise across Flutter, Android (Jetpack Compose), iOS (Swift), Go, Node.js, React, and
+                    GraphQL — shipped production systems in all</li>
+                <li>Built reusable component libraries, SDKs, and server-driven UI architectures from the ground up</li>
+                <li>Experienced in AWS, Firebase, Docker, Kubernetes, CI/CD, and scalable system design</li>
+                <li>Known for high execution velocity, strong ownership, and shipping reliable systems in fast-moving
+                    startup environments</li>
+                <li class="sub">Deep interest in payment workflows, large-scale distributed systems, and infrastructure
+                    reliability</li>
+            </ul>
+        </section>
 
-                    <div>
-                        <div class="stack-cat-label">Mobile &amp; Frontend</div>
-                        <div class="stack-grid">
-                            <a class="stack-pill" href="https://flutter.dev/" target="_blank" rel="noopener"><i
-                                    class="devicon-flutter-plain colored"></i> Flutter</a>
-                            <a class="stack-pill" href="https://dart.dev/" target="_blank" rel="noopener"><i
-                                    class="devicon-dart-plain colored"></i> Dart</a>
-                            <a class="stack-pill" href="https://developer.android.com/" target="_blank"
-                                rel="noopener"><i class="devicon-android-plain colored"></i> Android</a>
-                            <a class="stack-pill" href="https://kotlinlang.org/" target="_blank" rel="noopener"><i
-                                    class="devicon-kotlin-plain colored"></i> Kotlin</a>
-                            <a class="stack-pill" href="https://developer.android.com/jetpack/compose" target="_blank"
-                                rel="noopener"><i class="devicon-jetpackcompose-plain colored"></i> Jetpack Compose</a>
-                            <a class="stack-pill" href="https://react.dev/" target="_blank" rel="noopener"><i
-                                    class="devicon-react-original colored"></i> React</a>
-                            <a class="stack-pill" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-                                target="_blank" rel="noopener"><i class="devicon-javascript-plain colored"></i>
-                                JavaScript</a>
-                            <a class="stack-pill" href="https://developer.apple.com/swift/" target="_blank"
-                                rel="noopener"><i class="devicon-swift-plain colored"></i> Swift</a>
-                            <a class="stack-pill" href="https://developer.apple.com/ios/" target="_blank"
-                                rel="noopener"><i class="devicon-apple-original"></i> iOS</a>
+        <!-- Stack -->
+        <section class="section reveal" id="stack">
+            <h2 class="section-title">Stack</h2>
+            <div class="stack-wrap">
+                <a class="stack-pill" href="https://flutter.dev/" target="_blank" rel="noopener"><i
+                        class="devicon-flutter-plain colored"></i> Flutter</a>
+                <a class="stack-pill" href="https://dart.dev/" target="_blank" rel="noopener"><i
+                        class="devicon-dart-plain colored"></i> Dart</a>
+                <a class="stack-pill" href="https://developer.android.com/" target="_blank" rel="noopener"><i
+                        class="devicon-android-plain colored"></i> Android</a>
+                <a class="stack-pill" href="https://kotlinlang.org/" target="_blank" rel="noopener"><i
+                        class="devicon-kotlin-plain colored"></i> Kotlin</a>
+                <a class="stack-pill" href="https://developer.android.com/jetpack/compose" target="_blank"
+                    rel="noopener"><i class="devicon-jetpackcompose-plain colored"></i> Jetpack Compose</a>
+                <a class="stack-pill" href="https://developer.apple.com/swift/" target="_blank" rel="noopener"><i
+                        class="devicon-swift-plain colored"></i> Swift</a>
+                <a class="stack-pill" href="https://developer.apple.com/ios/" target="_blank" rel="noopener"><i
+                        class="devicon-apple-original"></i> iOS</a>
+                <a class="stack-pill" href="https://react.dev/" target="_blank" rel="noopener"><i
+                        class="devicon-react-original colored"></i> React</a>
+                <a class="stack-pill" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
+                    rel="noopener"><i class="devicon-javascript-plain colored"></i> JavaScript</a>
+                <a class="stack-pill" href="https://go.dev/" target="_blank" rel="noopener"><i
+                        class="devicon-go-original-wordmark colored"></i> Go</a>
+                <a class="stack-pill" href="https://nodejs.org/" target="_blank" rel="noopener"><i
+                        class="devicon-nodejs-plain colored"></i> Node.js</a>
+                <a class="stack-pill" href="https://www.java.com/" target="_blank" rel="noopener"><i
+                        class="devicon-java-plain colored"></i> Java</a>
+                <a class="stack-pill" href="https://graphql.org/" target="_blank" rel="noopener"><i
+                        class="devicon-graphql-plain colored"></i> GraphQL</a>
+                <span class="stack-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg> REST APIs</span>
+                <a class="stack-pill" href="https://aws.amazon.com/" target="_blank" rel="noopener"><i
+                        class="devicon-amazonwebservices-plain-wordmark colored"></i> AWS</a>
+                <a class="stack-pill" href="https://firebase.google.com/" target="_blank" rel="noopener"><i
+                        class="devicon-firebase-plain colored"></i> Firebase</a>
+                <a class="stack-pill" href="https://www.docker.com/" target="_blank" rel="noopener"><i
+                        class="devicon-docker-plain colored"></i> Docker</a>
+                <a class="stack-pill" href="https://kubernetes.io/" target="_blank" rel="noopener"><i
+                        class="devicon-kubernetes-plain colored"></i> Kubernetes</a>
+                <a class="stack-pill" href="https://www.jenkins.io/" target="_blank" rel="noopener"><i
+                        class="devicon-jenkins-line colored"></i> Jenkins</a>
+                <a class="stack-pill" href="https://git-scm.com/" target="_blank" rel="noopener"><i
+                        class="devicon-git-plain colored"></i> Git</a>
+                <a class="stack-pill" href="https://www.linux.org/" target="_blank" rel="noopener"><i
+                        class="devicon-linux-plain"></i> Linux</a>
+                <span class="stack-pill"><i class="devicon-postgresql-plain colored"></i> SQL</span>
+                <span class="stack-pill"><i class="devicon-mongodb-plain colored"></i> NoSQL</span>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="section reveal" id="experience">
+            <h2 class="section-title">Experience</h2>
+            <div class="exp-list">
+
+                <!-- Digia -->
+                <div class="exp-card">
+                    <div class="exp-card-header">
+                        <div class="exp-logo">D</div>
+                        <div>
+                            <div class="exp-company"><a href="https://digia.tech" target="_blank"
+                                    rel="noopener">Digia</a></div>
+                            <div class="exp-company-sub">Platform, SDK &amp; Infrastructure</div>
                         </div>
+                        <span class="badge-current">Current</span>
                     </div>
 
-                    <div>
-                        <div class="stack-cat-label">Backend &amp; Languages</div>
-                        <div class="stack-grid">
-                            <a class="stack-pill" href="https://go.dev/" target="_blank" rel="noopener"><i
-                                    class="devicon-go-original-wordmark colored"></i> Go</a>
-                            <a class="stack-pill" href="https://nodejs.org/" target="_blank" rel="noopener"><i
-                                    class="devicon-nodejs-plain colored"></i> Node.js</a>
-                            <a class="stack-pill" href="https://www.java.com/" target="_blank" rel="noopener"><i
-                                    class="devicon-java-plain colored"></i> Java</a>
-                            <span class="stack-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                    <polyline points="15 3 21 3 21 9" />
-                                    <line x1="10" y1="14" x2="21" y2="3" />
-                                </svg> REST APIs</span>
-                            <a class="stack-pill" href="https://graphql.org/" target="_blank" rel="noopener"><i
-                                    class="devicon-graphql-plain colored"></i> GraphQL</a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="stack-cat-label">Cloud &amp; DevOps</div>
-                        <div class="stack-grid">
-                            <a class="stack-pill" href="https://aws.amazon.com/" target="_blank" rel="noopener"><i
-                                    class="devicon-amazonwebservices-plain-wordmark colored"></i> AWS</a>
-                            <a class="stack-pill" href="https://firebase.google.com/" target="_blank" rel="noopener"><i
-                                    class="devicon-firebase-plain colored"></i> Firebase</a>
-                            <a class="stack-pill" href="https://www.docker.com/" target="_blank" rel="noopener"><i
-                                    class="devicon-docker-plain colored"></i> Docker</a>
-                            <a class="stack-pill" href="https://kubernetes.io/" target="_blank" rel="noopener"><i
-                                    class="devicon-kubernetes-plain colored"></i> Kubernetes</a>
-                            <a class="stack-pill" href="https://www.jenkins.io/" target="_blank" rel="noopener"><i
-                                    class="devicon-jenkins-line colored"></i> Jenkins</a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="stack-cat-label">Tools &amp; Data</div>
-                        <div class="stack-grid">
-                            <a class="stack-pill" href="https://git-scm.com/" target="_blank" rel="noopener"><i
-                                    class="devicon-git-plain colored"></i> Git</a>
-                            <a class="stack-pill" href="https://github.com/" target="_blank" rel="noopener"><i
-                                    class="devicon-github-original"></i> GitHub</a>
-                            <a class="stack-pill" href="https://www.linux.org/" target="_blank" rel="noopener"><i
-                                    class="devicon-linux-plain"></i> Linux</a>
-                            <span class="stack-pill"><i class="devicon-postgresql-plain colored"></i> SQL</span>
-                            <span class="stack-pill"><i class="devicon-mongodb-plain colored"></i> NoSQL</span>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="stack-cat-label">Practices</div>
-                        <div class="stack-grid">
-                            <span class="stack-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <polyline points="16 18 22 12 16 6" />
-                                    <polyline points="8 6 2 12 8 18" />
-                                </svg> TDD</span>
-                            <span class="stack-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="3" />
-                                    <path
-                                        d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-                                </svg> System Design</span>
-                            <span class="stack-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                                </svg> OOP</span>
-                            <span class="stack-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M18 20V10M12 20V4M6 20v-6" />
-                                </svg> DSA</span>
-                            <span class="stack-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                </svg> Scalability &amp; Reliability</span>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- ── EXPERIENCE ── -->
-            <section class="section reveal" id="experience">
-                <h2 class="section-title">Experience</h2>
-                <div class="exp-list">
-
-                    <!-- Digia — Full-time -->
-                    <div class="exp-item">
-                        <div class="exp-header">
-                            <div class="exp-company-logo">D</div>
-                            <div class="exp-company-info">
-                                <span class="exp-company-name">Digia</span>
-                                <span class="exp-company-sub">Platform, SDK &amp; Infrastructure</span>
-                            </div>
-                            <span class="badge badge-green">Current</span>
-                        </div>
-                        <div class="exp-role">Early Engineer</div>
+                    <!-- Role 1: Early Engineer -->
+                    <div class="exp-role-block">
+                        <div class="exp-role-title">Early Engineer</div>
                         <div class="exp-meta">
-                            <span class="exp-meta-tag">
+                            <span class="exp-tag">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <rect x="2" y="7" width="20" height="14" rx="2" />
                                     <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                                 </svg>
-                                full-time
+                                Full-time
                             </span>
-                            <span class="exp-meta-tag">
+                            <span class="exp-tag">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <rect x="3" y="4" width="18" height="18" rx="2" />
                                     <line x1="16" y1="2" x2="16" y2="6" />
                                     <line x1="8" y1="2" x2="8" y2="6" />
                                     <line x1="3" y1="10" x2="21" y2="10" />
                                 </svg>
-                                aug 2023 — present
+                                08.2023 — Present
                             </span>
                         </div>
                         <ul class="exp-bullets">
-                            <li>joined Digia at an early stage and played a <strong>key role in building the core
+                            <li>Joined Digia at an early stage and played a <strong>key role in building the core
                                     product from zero to production</strong></li>
-                            <li>architected and delivered <strong>Digia UI SDK (Flutter + Android)</strong> enabling
+                            <li>Architected and delivered <strong>Digia UI SDK (Flutter + Android)</strong> enabling
                                 server-driven rendering of native UI from JSON — reducing app release dependency and
                                 cutting feature delivery time by <strong>60–70%</strong></li>
-                            <li>designed and built an <strong>Android Jetpack Compose SDK from scratch in 2
-                                    weeks</strong>, including layout engine, modifiers, styling system, actions,
-                                navigation, lifecycle, and state handling</li>
-                            <li>built a <strong>React Native–based SDK trial environment in 1 week</strong> to validate
-                                server-driven UI concepts and enable faster experimentation</li>
-                            <li>developed <strong>50+ reusable UI components</strong> forming a scalable, versioned
+                            <li>Designed and built an <strong>Android Jetpack Compose SDK from scratch in 2
+                                    weeks</strong> — layout engine, modifiers, styling system, actions, navigation,
+                                lifecycle, and state handling</li>
+                            <li>Built a <strong>React Native–based SDK trial environment in 1 week</strong> to validate
+                                server-driven UI concepts</li>
+                            <li>Developed <strong>50+ reusable UI components</strong> forming a scalable, versioned
                                 component library used across multiple apps</li>
-                            <li>implemented <strong>real-time preview infrastructure</strong> — instant visualization of
-                                dashboard changes, shrinking feedback loops from days to minutes</li>
-                            <li>contributed to backend services in Go/Node.js — REST APIs, schema versioning, and
-                                runtime configuration delivery</li>
-                            <li class="sub">integrated CI/CD pipelines (Jenkins), automated builds, deployments, and
+                            <li>Implemented <strong>real-time preview infrastructure</strong> — instant visualization of
+                                dashboard changes</li>
+                            <li>Contributed to backend services in Go/Node.js — REST APIs, GraphQL endpoints, schema
+                                versioning, and runtime config delivery</li>
+                            <li class="sub">Integrated CI/CD pipelines (Jenkins), automated builds, deployments, and
                                 environment management</li>
-                            <li class="sub">worked extensively with AWS, Firebase, Docker, and system observability for
-                                production readiness</li>
-                            <li class="sub">acted as App Manager for Digia's Preview Android APK — owning release
-                                builds, versioning, stability</li>
+                            <li class="sub">Worked with AWS, Firebase, Docker, Kubernetes for production infrastructure
+                            </li>
+                            <li class="sub">Acted as App Manager for Digia's Preview Android APK — owning releases,
+                                versioning, stability</li>
                         </ul>
                         <div class="tech-pills">
-                            <span class="tech-pill">flutter</span>
-                            <span class="tech-pill">dart</span>
-                            <span class="tech-pill">android</span>
-                            <span class="tech-pill">kotlin</span>
-                            <span class="tech-pill">jetpack compose</span>
-                            <span class="tech-pill">react native</span>
-                            <span class="tech-pill">go</span>
-                            <span class="tech-pill">node.js</span>
-                            <span class="tech-pill">aws</span>
-                            <span class="tech-pill">firebase</span>
-                            <span class="tech-pill">docker</span>
-                            <span class="tech-pill">jenkins</span>
+                            <span class="tech-pill">Flutter</span>
+                            <span class="tech-pill">Dart</span>
+                            <span class="tech-pill">Android</span>
+                            <span class="tech-pill">Kotlin</span>
+                            <span class="tech-pill">Jetpack Compose</span>
+                            <span class="tech-pill">React Native</span>
+                            <span class="tech-pill">Go</span>
+                            <span class="tech-pill">Node.js</span>
+                            <span class="tech-pill">GraphQL</span>
+                            <span class="tech-pill">AWS</span>
+                            <span class="tech-pill">Firebase</span>
+                            <span class="tech-pill">Docker</span>
+                            <span class="tech-pill">Jenkins</span>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Digia — Intern -->
-                    <div class="exp-item">
-                        <div class="exp-header">
-                            <div class="exp-company-logo">D</div>
-                            <div class="exp-company-info">
-                                <span class="exp-company-name">Local Business (via Digia)</span>
-                                <span class="exp-company-sub">Mobile Development</span>
-                            </div>
+                <!-- Local Business -->
+                <div class="exp-card">
+                    <div class="exp-card-header">
+                        <div class="exp-logo" style="background:linear-gradient(135deg,#f59e0b,#ef4444);">L</div>
+                        <div>
+                            <div class="exp-company">Local Business (via Digia)</div>
+                            <div class="exp-company-sub">Mobile Development</div>
                         </div>
-                        <div class="exp-role">Mobile App Developer Intern</div>
+                    </div>
+                    <div class="exp-role-block">
+                        <div class="exp-role-title">Mobile App Developer — Intern</div>
                         <div class="exp-meta">
-                            <span class="exp-meta-tag">
+                            <span class="exp-tag">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <rect x="2" y="7" width="20" height="14" rx="2" />
                                     <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                                 </svg>
-                                internship
+                                Internship
                             </span>
-                            <span class="exp-meta-tag">
+                            <span class="exp-tag">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <rect x="3" y="4" width="18" height="18" rx="2" />
                                     <line x1="16" y1="2" x2="16" y2="6" />
                                     <line x1="8" y1="2" x2="8" y2="6" />
                                     <line x1="3" y1="10" x2="21" y2="10" />
                                 </svg>
-                                may 2023 — jul 2023
+                                05.2023 — 07.2023
                             </span>
                         </div>
                         <ul class="exp-bullets">
-                            <li>built, tested, and launched <strong>2 production Flutter apps</strong> end-to-end —
+                            <li>Built, tested, and launched <strong>2 production Flutter apps</strong> end-to-end —
                                 published on Google Play Store</li>
-                            <li>implemented dynamic JSON-based UI rendering, enabling backend-controlled UI changes
+                            <li>Implemented dynamic JSON-based UI rendering, enabling backend-controlled UI changes
                                 without app redeployment</li>
-                            <li>integrated Firebase Auth, Firestore, AWS services, and optimized API usage for
-                                performance and scalability</li>
+                            <li>Integrated Firebase Auth, Firestore, AWS services, and optimized API usage for
+                                performance</li>
                         </ul>
                         <div class="tech-pills">
-                            <span class="tech-pill">flutter</span>
-                            <span class="tech-pill">dart</span>
-                            <span class="tech-pill">firebase</span>
-                            <span class="tech-pill">aws</span>
-                            <span class="tech-pill">rest apis</span>
+                            <span class="tech-pill">Flutter</span>
+                            <span class="tech-pill">Dart</span>
+                            <span class="tech-pill">Firebase</span>
+                            <span class="tech-pill">AWS</span>
+                            <span class="tech-pill">REST APIs</span>
                         </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- ── PROJECTS ── -->
-            <section class="section reveal" id="projects">
-                <h2 class="section-title">Projects</h2>
-                <div class="proj-list">
-
-                    <div class="proj-card">
-                        <div class="proj-header">
-                            <div class="proj-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                                    <polyline points="9 22 9 12 15 12 15 22" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="proj-name">Airspace</div>
-                        <div class="proj-period">Hotel &amp; Guest Booking Backend</div>
-                        <div class="proj-desc">
-                            Designed and implemented backend services for a hotel / guest booking system. Modeled core
-                            domain entities: Host, Customer, Property, Booking, History, Ratings. Built REST APIs for
-                            onboarding, search, booking lifecycle, history tracking, and role-based access control.
-                            Focused on clean architecture, scalability, and production-ready design.
-                        </div>
-                        <div class="tech-pills">
-                            <span class="tech-pill">go</span>
-                            <span class="tech-pill">rest apis</span>
-                            <span class="tech-pill">system design</span>
-                            <span class="tech-pill">sql</span>
-                            <span class="tech-pill">clean architecture</span>
-                        </div>
-                    </div>
-
-                    <div class="proj-card">
-                        <div class="proj-header">
-                            <div class="proj-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <circle cx="9" cy="21" r="1" />
-                                    <circle cx="20" cy="21" r="1" />
-                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="proj-name">Unigets</div>
-                        <div class="proj-period">D2C / Affiliate Commerce Platform</div>
-                        <div class="proj-desc">
-                            Built a platform to sell trending products via external websites and Instagram ad funnels.
-                            Implemented product discovery, redirection flows, and basic conversion tracking. Enabled
-                            rapid experimentation with landing pages and demand validation.
-                        </div>
-                        <div class="tech-pills">
-                            <span class="tech-pill">node.js</span>
-                            <span class="tech-pill">javascript</span>
-                            <span class="tech-pill">rest apis</span>
-                            <span class="tech-pill">tracking</span>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- ── EDUCATION ── -->
-            <section class="section reveal" id="education">
-                <h2 class="section-title">Education</h2>
-                <div class="edu-item">
-                    <div class="edu-header">
-                        <div class="edu-icon">🎓</div>
-                        <div>
-                            <div class="edu-degree">B.Tech — Computer Science Engineering</div>
-                            <div class="edu-school">Government Engineering College, Ajmer</div>
-                        </div>
-                    </div>
-                    <div class="edu-meta">
-                        <span>2019 — 2023</span>
-                        <span class="edu-cgpa">CGPA 7.8 / 10</span>
                     </div>
                 </div>
-            </section>
 
-            <!-- ── CONTACT ── -->
-            <section class="section reveal" id="contact">
-                <h2 class="section-title">Contact</h2>
-                <div class="contact-heading">Let's build something great together.</div>
-                <div class="contact-subtext">Open to full-time roles in SDK engineering, mobile platform, and systems
-                    development.</div>
-                <div class="contact-links">
-                    <a class="contact-link" href="https://github.com/ramlalsuthar03" target="_blank" rel="noopener">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.8-.26.8-.57v-2.23c-3.34.72-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 6.8c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
-                        </svg>
-                        GitHub
-                    </a>
-                    <a class="contact-link" href="https://linkedin.com/in/ramlal-suthar" target="_blank" rel="noopener">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43A2.06 2.06 0 1 1 5.34 3.3a2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
-                        </svg>
-                        LinkedIn
-                    </a>
-                    <a class="contact-link" href="mailto:ramsthr38@gmail.com">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.8">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                            <polyline points="22,6 12,13 2,6" />
-                        </svg>
-                        Email
-                    </a>
-                    <a class="contact-link" href="tel:+917232841614">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.8">
-                            <path
-                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-                        </svg>
-                        Phone
-                    </a>
-                    <a class="contact-link" href="https://digia.tech" target="_blank" rel="noopener">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.8">
-                            <circle cx="12" cy="12" r="10" />
-                            <line x1="2" y1="12" x2="22" y2="12" />
-                            <path
-                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                        </svg>
-                        digia.tech
-                    </a>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="section reveal" id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="proj-list">
+
+                <div class="proj-card">
+                    <div class="proj-head">
+                        <div class="proj-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                <polyline points="9 22 9 12 15 12 15 22" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="proj-name">Airspace</div>
+                    <div class="proj-period">Hotel &amp; Guest Booking Backend</div>
+                    <p class="proj-desc">Designed and implemented backend services for a hotel / guest booking system.
+                        Modeled core domain entities: Host, Customer, Property, Booking, History, Ratings. Built REST
+                        APIs for onboarding, search, booking lifecycle, history tracking, and role-based access control.
+                    </p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">Go</span>
+                        <span class="tech-pill">REST APIs</span>
+                        <span class="tech-pill">System Design</span>
+                        <span class="tech-pill">SQL</span>
+                        <span class="tech-pill">Clean Architecture</span>
+                    </div>
                 </div>
-            </section>
 
-            <!-- Footer -->
-            <footer>
-                <span>inspired by <a href="https://nishchay17.com" target="_blank"
-                        rel="noopener">nishchay17.com</a></span>
-                <span>built by <a href="https://github.com/ramlalsuthar03" target="_blank" rel="noopener">ramlal
-                        suthar</a></span>
-            </footer>
+                <div class="proj-card">
+                    <div class="proj-head">
+                        <div class="proj-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="9" cy="21" r="1" />
+                                <circle cx="20" cy="21" r="1" />
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="proj-name">Unigets</div>
+                    <div class="proj-period">D2C / Affiliate Commerce Platform</div>
+                    <p class="proj-desc">Built a platform to sell trending products via external websites and Instagram
+                        ad funnels. Implemented product discovery, redirection flows, and conversion tracking. Enabled
+                        rapid experimentation with landing pages and demand validation.</p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">Node.js</span>
+                        <span class="tech-pill">JavaScript</span>
+                        <span class="tech-pill">REST APIs</span>
+                        <span class="tech-pill">Tracking</span>
+                    </div>
+                </div>
 
-        </main>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section reveal" id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="edu-card">
+                <div class="edu-head">
+                    <div class="edu-icon">🎓</div>
+                    <div>
+                        <div class="edu-degree">B.Tech — Computer Science Engineering</div>
+                        <div class="edu-school">Government Engineering College, Ajmer</div>
+                    </div>
+                </div>
+                <div class="edu-meta">
+                    <span>08.2019 — 06.2023</span>
+                    <span class="edu-cgpa">CGPA 7.8 / 10</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="section reveal" id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-heading">Let's build something great together.</div>
+            <p class="contact-sub">Open to full-time roles in SDK engineering, full-stack, mobile platform, and systems
+                development.</p>
+            <div class="contact-row">
+                <a class="social-link" href="https://github.com/ramlalsuthar03" target="_blank" rel="noopener">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.8-.26.8-.57v-2.23c-3.34.72-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 6.8c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
+                    GitHub
+                </a>
+                <a class="social-link" href="https://linkedin.com/in/ramlal-suthar" target="_blank" rel="noopener">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43A2.06 2.06 0 1 1 5.34 3.3a2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
+                    </svg>
+                    LinkedIn
+                </a>
+                <a class="social-link" href="mailto:ramsthr38@gmail.com">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    Email
+                </a>
+                <a class="social-link" href="tel:+917232841614">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    Phone
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <span>Inspired by <a href="https://chanhdai.com" target="_blank" rel="noopener">chanhdai.com</a></span>
+            <span>Built by <a href="https://github.com/ramlalsuthar03" target="_blank" rel="noopener">Ramlal
+                    Suthar</a></span>
+        </footer>
+
     </div>
 
     <!-- Scroll to top -->
     <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="18 15 12 9 6 15" />
         </svg>
     </button>
 
     <script>
-        /* ═══ THEME ═══ */
+        /* Theme */
         const html = document.documentElement;
         const iconSun = document.getElementById('iconSun');
         const iconMoon = document.getElementById('iconMoon');
         function applyTheme(t) {
-            html.setAttribute('data-theme', t);
+            html.dataset.theme = t;
             localStorage.setItem('theme', t);
             iconSun.style.display = t === 'dark' ? 'block' : 'none';
             iconMoon.style.display = t === 'dark' ? 'none' : 'block';
         }
         function toggleTheme() { applyTheme(html.dataset.theme === 'dark' ? 'light' : 'dark'); }
-        const saved = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        applyTheme(saved || (prefersDark ? 'dark' : 'light'));
+        applyTheme(localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light'));
         document.getElementById('themeBtn').addEventListener('click', toggleTheme);
         document.getElementById('cmdToggleTheme').addEventListener('click', () => { toggleTheme(); closeCmd(); });
 
-        /* ═══ COMMAND PALETTE ═══ */
+        /* Command Palette */
         const overlay = document.getElementById('cmdOverlay');
         const cmdInput = document.getElementById('cmdInput');
-        const itemsList = document.getElementById('cmdItems');
-        function openCmd() { overlay.classList.add('open'); cmdInput.value = ''; filterCmdItems(''); cmdInput.focus(); }
+        function openCmd() { overlay.classList.add('open'); cmdInput.value = ''; filterCmd(''); cmdInput.focus(); }
         function closeCmd() { overlay.classList.remove('open'); }
         document.getElementById('cmdBtn').addEventListener('click', openCmd);
         overlay.addEventListener('click', e => { if (e.target === overlay) closeCmd(); });
@@ -1953,43 +1530,31 @@
             if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); overlay.classList.contains('open') ? closeCmd() : openCmd(); }
             if (e.key === 'Escape') closeCmd();
         });
-        cmdInput.addEventListener('input', e => filterCmdItems(e.target.value.toLowerCase()));
-        function filterCmdItems(q) {
-            itemsList.querySelectorAll('.cmd-item').forEach(el => {
+        cmdInput.addEventListener('input', e => filterCmd(e.target.value.toLowerCase()));
+        function filterCmd(q) {
+            document.querySelectorAll('#cmdItems .cmd-item').forEach(el => {
                 el.style.display = el.textContent.trim().toLowerCase().includes(q) ? '' : 'none';
             });
         }
-        itemsList.querySelectorAll('.cmd-item[data-href]').forEach(el => {
+        document.querySelectorAll('#cmdItems .cmd-item[data-href]').forEach(el => {
             el.addEventListener('click', () => {
-                const href = el.dataset.href;
-                if (href.startsWith('mailto:') || href.startsWith('http')) { window.open(href, '_blank'); }
-                else { window.location.hash = href; }
+                const h = el.dataset.href;
+                if (h.startsWith('mailto:') || h.startsWith('http')) window.open(h, '_blank');
+                else window.location.hash = h;
                 closeCmd();
             });
         });
 
-        /* ═══ SIDEBAR ACTIVE ═══ */
-        const sections = document.querySelectorAll('.section[id]');
-        const sideLinks = document.querySelectorAll('.sidebar-nav a');
-        const io = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    sideLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + entry.target.id));
-                }
-            });
-        }, { rootMargin: '-15% 0px -75% 0px' });
-        sections.forEach(s => io.observe(s));
-
-        /* ═══ SCROLL REVEAL ═══ */
-        const revealIO = new IntersectionObserver(entries => {
-            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealIO.unobserve(entry.target); } });
+        /* Scroll reveal */
+        const revIO = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revIO.unobserve(e.target); } });
         }, { threshold: 0.08 });
-        document.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
+        document.querySelectorAll('.reveal').forEach(el => revIO.observe(el));
 
-        /* ═══ SCROLL TOP ═══ */
-        const scrollBtn = document.getElementById('scrollTop');
-        window.addEventListener('scroll', () => scrollBtn.classList.toggle('show', window.scrollY > 320));
-        scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        /* Scroll to top */
+        const stb = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => stb.classList.toggle('show', scrollY > 300));
+        stb.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
     </script>
 </body>
 
