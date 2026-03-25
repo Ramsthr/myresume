@@ -1,0 +1,1996 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ramlal Suthar — Early Engineer · Mobile Platform / SDK · Full-Stack</title>
+    <meta name="description"
+        content="Ramlal Suthar — Early engineer shipping end-to-end across mobile, backend, and infrastructure — from SDKs and server-driven UIs to APIs, DevOps, and cloud systems." />
+    <meta property="og:title" content="Ramlal Suthar — Early Engineer" />
+    <meta property="og:description"
+        content="Early engineer building full-stack products — mobile SDKs, backend APIs, infrastructure, and scalable systems at Digia." />
+    <meta property="og:type" content="website" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>⚡</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #ffffff;
+            --bg-secondary: #fafafa;
+            --bg-tertiary: #f5f5f5;
+            --fg: #0a0a0a;
+            --fg-muted: #555;
+            --fg-subtle: #999;
+            --border: #e8e8e8;
+            --border-strong: #ccc;
+            --accent: #0070f3;
+            --accent-glow: rgba(0, 112, 243, 0.12);
+            --green: #22c55e;
+            --green-glow: rgba(34, 197, 94, 0.1);
+            --pill-bg: #f2f2f2;
+            --pill-hover: #e8e8e8;
+            --pill-border: #e0e0e0;
+            --header-bg: rgba(255, 255, 255, 0.82);
+            --card-bg: #ffffff;
+            --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04);
+            --sidebar-w: 180px;
+        }
+
+        [data-theme="dark"] {
+            --bg: #09090b;
+            --bg-secondary: #0f0f11;
+            --bg-tertiary: #141416;
+            --fg: #f0f0f0;
+            --fg-muted: #8a8a8a;
+            --fg-subtle: #505050;
+            --border: #1c1c1e;
+            --border-strong: #2a2a2e;
+            --accent: #3b9eff;
+            --accent-glow: rgba(59, 158, 255, 0.08);
+            --green: #4ade80;
+            --green-glow: rgba(74, 222, 128, 0.06);
+            --pill-bg: #151517;
+            --pill-hover: #1c1c1e;
+            --pill-border: #252528;
+            --header-bg: rgba(9, 9, 11, 0.82);
+            --card-bg: #111113;
+            --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.04);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            font-size: 14px;
+            line-height: 1.6;
+            transition: background 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--fg);
+            text-decoration: none;
+        }
+
+        /* ═══ ANIMATIONS ═══ */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: .5;
+            }
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        /* ═══ HEADER ═══ */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            height: 52px;
+            background: var(--header-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            gap: 12px;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 26px;
+            height: 26px;
+            border-radius: 7px;
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 13px;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--fg);
+            letter-spacing: -0.01em;
+        }
+
+        .header-spacer {
+            flex: 1;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 1px;
+        }
+
+        .header-nav a {
+            font-size: 13px;
+            color: var(--fg-muted);
+            padding: 5px 10px;
+            border-radius: 6px;
+            transition: color 0.15s, background 0.15s;
+        }
+
+        .header-nav a:hover {
+            color: var(--fg);
+            background: var(--pill-bg);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .icon-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 7px;
+            border: 1px solid var(--border);
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--fg-muted);
+            transition: all 0.15s;
+        }
+
+        .icon-btn:hover {
+            color: var(--fg);
+            background: var(--pill-bg);
+            border-color: var(--border-strong);
+        }
+
+        .cmd-btn {
+            height: 30px;
+            padding: 0 10px;
+            border-radius: 7px;
+            border: 1px solid var(--border);
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--fg-muted);
+            font-family: inherit;
+            transition: all 0.15s;
+        }
+
+        .cmd-btn:hover {
+            color: var(--fg);
+            background: var(--pill-bg);
+        }
+
+        .cmd-btn kbd {
+            font-size: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--pill-bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1px 5px;
+        }
+
+        /* ═══ LAYOUT ═══ */
+        .layout {
+            display: flex;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 52px;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        .sidebar {
+            width: var(--sidebar-w);
+            flex-shrink: 0;
+            position: sticky;
+            top: 52px;
+            height: calc(100vh - 52px);
+            overflow-y: auto;
+            padding: 32px 16px 32px 0;
+            border-right: 1px solid var(--border);
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+
+        .sidebar-nav a {
+            font-size: 13px;
+            color: var(--fg-muted);
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: color 0.15s, background 0.15s;
+            display: block;
+        }
+
+        .sidebar-nav a:hover {
+            color: var(--fg);
+            background: var(--pill-bg);
+        }
+
+        .sidebar-nav a.active {
+            color: var(--fg);
+            background: var(--pill-bg);
+            font-weight: 500;
+        }
+
+        main {
+            flex: 1;
+            min-width: 0;
+            padding: 0 0 80px 48px;
+        }
+
+        /* ═══ HERO ═══ */
+        .hero {
+            padding: 56px 0 42px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px 4px 6px;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            font-size: 12px;
+            color: var(--fg-muted);
+            margin-bottom: 20px;
+            animation: fadeIn 0.8s ease both;
+        }
+
+        .hero-badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulse 2s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        .hero-heading {
+            font-size: clamp(22px, 3vw, 32px);
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.025em;
+            margin-bottom: 18px;
+            max-width: 700px;
+            animation: fadeUp 0.8s ease both 0.1s;
+        }
+
+        .hero-heading em {
+            font-style: italic;
+            background: linear-gradient(135deg, var(--accent), #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradientShift 4s ease infinite;
+        }
+
+        .hero-intro {
+            font-size: 15px;
+            color: var(--fg-muted);
+            line-height: 1.75;
+            max-width: 600px;
+            animation: fadeUp 0.8s ease both 0.2s;
+        }
+
+        .hero-intro strong {
+            color: var(--fg);
+            font-weight: 600;
+        }
+
+        .hero-intro a {
+            color: var(--fg);
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-color: var(--accent);
+            text-underline-offset: 3px;
+            transition: color 0.15s;
+        }
+
+        .hero-intro a:hover {
+            color: var(--accent);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+            animation: fadeUp 0.8s ease both 0.3s;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 18px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            background: var(--fg);
+            color: var(--bg);
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.15s;
+            font-family: inherit;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.85;
+            color: var(--bg);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 18px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            background: transparent;
+            color: var(--fg);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s;
+            font-family: inherit;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--pill-bg);
+            border-color: var(--border-strong);
+            color: var(--fg);
+        }
+
+        /* ═══ IMPACT BAR ═══ */
+        .impact-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1px;
+            margin-top: 32px;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--border);
+            animation: fadeUp 0.8s ease both 0.4s;
+        }
+
+        .impact-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 20px;
+            background: var(--bg-secondary);
+        }
+
+        .impact-num {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, var(--fg) 30%, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .impact-lbl {
+            font-size: 11.5px;
+            color: var(--fg-subtle);
+            line-height: 1.4;
+        }
+
+        /* ═══ HIRING BANNER ═══ */
+        .hiring-banner {
+            margin-top: 28px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(34, 197, 94, 0.25);
+            background: var(--green-glow);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            animation: fadeUp 0.8s ease both 0.5s;
+        }
+
+        .hiring-banner svg {
+            flex-shrink: 0;
+            margin-top: 1px;
+            color: var(--green);
+        }
+
+        .hiring-banner-text {
+            font-size: 13.5px;
+            color: var(--fg-muted);
+            line-height: 1.6;
+        }
+
+        .hiring-banner-text strong {
+            color: var(--fg);
+        }
+
+        /* ═══ SECTIONS ═══ */
+        .section {
+            padding: 44px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--fg-subtle);
+            margin-bottom: 22px;
+        }
+
+        /* ═══ OVERVIEW ═══ */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 10px;
+        }
+
+        .overview-card {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            transition: border-color 0.15s, background 0.15s;
+        }
+
+        .overview-card:hover {
+            border-color: var(--border-strong);
+            background: var(--bg-secondary);
+        }
+
+        .overview-card svg {
+            flex-shrink: 0;
+            color: var(--fg-subtle);
+        }
+
+        .overview-card-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .overview-card-label {
+            font-size: 10.5px;
+            color: var(--fg-subtle);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 500;
+        }
+
+        .overview-card-value {
+            font-size: 13.5px;
+            color: var(--fg);
+            font-weight: 500;
+        }
+
+        .overview-card-value a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.15s;
+        }
+
+        .overview-card-value a:hover {
+            opacity: 0.8;
+        }
+
+        /* ═══ ABOUT ═══ */
+        .about-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .about-list li {
+            font-size: 14px;
+            line-height: 1.7;
+            padding-left: 16px;
+            position: relative;
+            color: var(--fg);
+        }
+
+        .about-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .about-list li.sub {
+            padding-left: 32px;
+            color: var(--fg-muted);
+        }
+
+        .about-list li.sub::before {
+            left: 16px;
+            content: '–';
+            color: var(--fg-subtle);
+        }
+
+        /* ═══ STACK ═══ */
+        .stack-categories {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .stack-cat-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--fg-subtle);
+            margin-bottom: 8px;
+        }
+
+        .stack-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .stack-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 6px 13px;
+            border-radius: 8px;
+            border: 1px solid var(--pill-border);
+            background: var(--card-bg);
+            font-size: 13px;
+            color: var(--fg);
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: var(--card-shadow);
+        }
+
+        .stack-pill:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px var(--accent-glow);
+            color: var(--fg);
+        }
+
+        .stack-pill i {
+            font-size: 16px;
+        }
+
+        .stack-pill img {
+            width: 16px;
+            height: 16px;
+            border-radius: 2px;
+        }
+
+        /* ═══ EXPERIENCE ═══ */
+        .exp-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .exp-item {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 20px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            transition: border-color 0.2s;
+        }
+
+        .exp-item:hover {
+            border-color: var(--border-strong);
+        }
+
+        .exp-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .exp-company-logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .exp-company-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .exp-company-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--fg);
+        }
+
+        .exp-company-sub {
+            font-size: 11.5px;
+            color: var(--fg-subtle);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 10.5px;
+            padding: 2px 9px;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            color: var(--fg-muted);
+            background: var(--pill-bg);
+            font-weight: 500;
+            margin-left: auto;
+        }
+
+        .badge-green {
+            border-color: rgba(34, 197, 94, 0.35);
+            color: var(--green);
+            background: var(--green-glow);
+        }
+
+        .badge-green::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .exp-role {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--fg);
+        }
+
+        .exp-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--fg-muted);
+        }
+
+        .exp-meta-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 8px;
+            border-radius: 5px;
+            background: var(--pill-bg);
+            font-size: 11px;
+        }
+
+        .exp-meta-tag svg {
+            width: 11px;
+            height: 11px;
+        }
+
+        .exp-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .exp-bullets li {
+            font-size: 13.5px;
+            line-height: 1.7;
+            padding-left: 16px;
+            position: relative;
+            color: var(--fg);
+        }
+
+        .exp-bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--fg-muted);
+        }
+
+        .exp-bullets li.sub {
+            padding-left: 32px;
+            color: var(--fg-muted);
+        }
+
+        .exp-bullets li.sub::before {
+            left: 16px;
+        }
+
+        .exp-bullets strong {
+            color: var(--fg);
+            font-weight: 600;
+        }
+
+        .tech-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 4px;
+        }
+
+        .tech-pill {
+            font-size: 11px;
+            padding: 2px 9px;
+            border-radius: 5px;
+            border: 1px solid var(--pill-border);
+            background: var(--pill-bg);
+            color: var(--fg-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ═══ PROJECTS ═══ */
+        .proj-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+
+        .proj-card {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        .proj-card:hover {
+            border-color: var(--border-strong);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        [data-theme="dark"] .proj-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .proj-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .proj-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--accent-glow);
+            border: 1px solid rgba(0, 112, 243, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .proj-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--fg);
+            margin-bottom: 4px;
+        }
+
+        .proj-period {
+            font-size: 11px;
+            color: var(--fg-subtle);
+        }
+
+        .proj-desc {
+            font-size: 13px;
+            color: var(--fg-muted);
+            line-height: 1.6;
+        }
+
+        /* ═══ EDUCATION ═══ */
+        .edu-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 20px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+        }
+
+        .edu-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .edu-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .edu-degree {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--fg);
+        }
+
+        .edu-school {
+            font-size: 13.5px;
+            color: var(--fg-muted);
+        }
+
+        .edu-meta {
+            font-size: 12px;
+            color: var(--fg-subtle);
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .edu-cgpa {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11.5px;
+            padding: 3px 10px;
+            border-radius: 100px;
+            font-weight: 600;
+            border: 1px solid rgba(0, 112, 243, 0.2);
+            color: var(--accent);
+            background: var(--accent-glow);
+        }
+
+        /* ═══ CONTACT ═══ */
+        .contact-heading {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .contact-subtext {
+            font-size: 14px;
+            color: var(--fg-muted);
+            margin-bottom: 18px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            font-size: 13.5px;
+            color: var(--fg);
+            background: var(--card-bg);
+            transition: all 0.2s;
+        }
+
+        .contact-link:hover {
+            border-color: var(--accent);
+            background: var(--accent-glow);
+            transform: translateY(-2px);
+            color: var(--fg);
+        }
+
+        .contact-link svg {
+            flex-shrink: 0;
+        }
+
+        /* ═══ FOOTER ═══ */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--fg-subtle);
+        }
+
+        footer a {
+            color: var(--fg-muted);
+        }
+
+        footer a:hover {
+            color: var(--fg);
+        }
+
+        /* ═══ CMD PALETTE ═══ */
+        .cmd-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 200;
+            padding: 70px 16px;
+            backdrop-filter: blur(6px);
+        }
+
+        .cmd-overlay.open {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .cmd-box {
+            width: 100%;
+            max-width: 520px;
+            background: var(--bg);
+            border: 1px solid var(--border-strong);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+        }
+
+        .cmd-search {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cmd-search svg {
+            color: var(--fg-subtle);
+            flex-shrink: 0;
+        }
+
+        .cmd-input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-size: 14px;
+            color: var(--fg);
+            outline: none;
+            font-family: inherit;
+        }
+
+        .cmd-input::placeholder {
+            color: var(--fg-subtle);
+        }
+
+        .cmd-items {
+            list-style: none;
+            padding: 6px;
+            max-height: 340px;
+            overflow-y: auto;
+        }
+
+        .cmd-section {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--fg-subtle);
+            padding: 10px 10px 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .cmd-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--fg);
+            transition: background 0.1s;
+        }
+
+        .cmd-item:hover {
+            background: var(--pill-bg);
+        }
+
+        .cmd-item svg {
+            color: var(--fg-muted);
+            flex-shrink: 0;
+        }
+
+        /* ═══ SCROLL TOP ═══ */
+        .scroll-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            color: var(--fg-muted);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            transition: all 0.2s;
+        }
+
+        .scroll-top.show {
+            display: flex;
+        }
+
+        .scroll-top:hover {
+            background: var(--pill-bg);
+            color: var(--fg);
+            transform: translateY(-2px);
+        }
+
+        /* ═══ RESPONSIVE ═══ */
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+
+            main {
+                padding: 0 0 60px;
+            }
+
+            .layout {
+                padding: 52px 16px 0;
+            }
+
+            .header-nav {
+                display: none;
+            }
+
+            header {
+                padding: 0 16px;
+            }
+
+            .proj-list {
+                grid-template-columns: 1fr;
+            }
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-heading {
+                font-size: 20px;
+            }
+
+            .impact-bar {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .exp-item {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══ COMMAND PALETTE ═══ -->
+    <div class="cmd-overlay" id="cmdOverlay" role="dialog" aria-modal="true" aria-label="Command Palette">
+        <div class="cmd-box">
+            <div class="cmd-search">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                </svg>
+                <input id="cmdInput" class="cmd-input" type="text" placeholder="Search for a command to run..."
+                    autocomplete="off" spellcheck="false" />
+            </div>
+            <ul class="cmd-items" id="cmdItems">
+                <li class="cmd-section">Navigation</li>
+                <li class="cmd-item" data-href="#overview"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    </svg>Overview</li>
+                <li class="cmd-item" data-href="#about"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="8" r="4" />
+                        <path d="M20 21a8 8 0 1 0-16 0" />
+                    </svg>About</li>
+                <li class="cmd-item" data-href="#stack"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <polyline points="16 18 22 12 16 6" />
+                        <polyline points="8 6 2 12 8 18" />
+                    </svg>Stack</li>
+                <li class="cmd-item" data-href="#experience"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" />
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                    </svg>Experience</li>
+                <li class="cmd-item" data-href="#projects"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                    </svg>Projects</li>
+                <li class="cmd-item" data-href="#education"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                    </svg>Education</li>
+                <li class="cmd-item" data-href="#contact"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>Contact</li>
+                <li class="cmd-section">Actions</li>
+                <li class="cmd-item" id="cmdToggleTheme"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5" />
+                        <line x1="12" y1="1" x2="12" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="23" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                        <line x1="1" y1="12" x2="3" y2="12" />
+                        <line x1="21" y1="12" x2="23" y2="12" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                    </svg>Toggle Theme</li>
+                <li class="cmd-item" data-href="mailto:ramsthr38@gmail.com"><svg width="14" height="14"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>Send Email</li>
+                <li class="cmd-item" data-href="https://github.com/ramlalsuthar03"><svg width="14" height="14"
+                        viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.8-.26.8-.57v-2.23c-3.34.72-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 6.8c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                    </svg>Open GitHub</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ═══ HEADER ═══ -->
+    <header>
+        <a href="#" class="header-logo">
+            <span class="logo-mark">RS</span>
+            <span class="logo-name">ramlal suthar</span>
+        </a>
+        <div class="header-spacer"></div>
+        <nav class="header-nav">
+            <a href="#overview">Overview</a>
+            <a href="#stack">Stack</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+            <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">
+                <svg id="iconSun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" style="display:none">
+                    <circle cx="12" cy="12" r="5" />
+                    <line x1="12" y1="1" x2="12" y2="3" />
+                    <line x1="12" y1="21" x2="12" y2="23" />
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                    <line x1="1" y1="12" x2="3" y2="12" />
+                    <line x1="21" y1="12" x2="23" y2="12" />
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </svg>
+                <svg id="iconMoon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+            </button>
+            <button class="cmd-btn" id="cmdBtn"><span>Search</span><kbd>⌘K</kbd></button>
+        </div>
+    </header>
+
+    <!-- ═══ LAYOUT ═══ -->
+    <div class="layout">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="#overview" class="active">Overview</a>
+                <a href="#about">About</a>
+                <a href="#stack">Stack</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </aside>
+
+        <main>
+
+            <!-- ── HERO ── -->
+            <section class="hero">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    Open to opportunities
+                </div>
+                <h1 class="hero-heading">
+                    building <em>products end-to-end</em> — from mobile SDKs &amp; server-driven UIs to backend
+                    services, infrastructure &amp; everything in between
+                </h1>
+                <p class="hero-intro">
+                    I'm <strong>Ramlal Suthar</strong>, an early engineer at <a href="https://digia.tech"
+                        target="_blank" rel="noopener">Digia</a> — I ship across the full stack: mobile platforms,
+                    frontend, backend APIs, DevOps pipelines, and cloud infrastructure. From first commit to production.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn-primary" href="mailto:ramsthr38@gmail.com">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                        Get in touch
+                    </a>
+                    <a class="btn-secondary" href="https://github.com/ramlalsuthar03" target="_blank" rel="noopener">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.8-.26.8-.57v-2.23c-3.34.72-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 6.8c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                        </svg>
+                        View GitHub
+                    </a>
+                    <a class="btn-secondary" href="https://digia.tech" target="_blank" rel="noopener">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                        digia.tech
+                    </a>
+                </div>
+
+                <div class="impact-bar">
+                    <div class="impact-stat">
+                        <span class="impact-num">Early Engineer</span>
+                        <span class="impact-lbl">joined pre-product, built from zero</span>
+                    </div>
+                    <div class="impact-stat">
+                        <span class="impact-num">Fast Builder</span>
+                        <span class="impact-lbl">ship production systems, fast</span>
+                    </div>
+                    <div class="impact-stat">
+                        <span class="impact-num">Full-Stack</span>
+                        <span class="impact-lbl">mobile · backend · infra · DevOps</span>
+                    </div>
+                    <div class="impact-stat">
+                        <span class="impact-num">0 → 1 Mindset</span>
+                        <span class="impact-lbl">thrive in ambiguity &amp; ownership</span>
+                    </div>
+                </div>
+
+                <div class="hiring-banner">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                    <div class="hiring-banner-text">
+                        <strong>Why hire me?</strong> I thrive in <strong>0→1 environments</strong> — I built Digia's
+                        entire mobile SDK platform from scratch, shipped a Jetpack Compose SDK in 2 weeks, and
+                        consistently turn ambiguity into production-grade systems. I bring <strong>high execution
+                            velocity</strong>, deep cross-platform expertise, and a startup operator mindset.
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── OVERVIEW ── -->
+            <section class="section reveal" id="overview">
+                <h2 class="section-title">Overview</h2>
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <rect x="2" y="7" width="20" height="14" rx="2" />
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                        </svg>
+                        <div class="overview-card-content">
+                            <span class="overview-card-label">Role</span>
+                            <span class="overview-card-value">Early Engineer @ <a href="https://digia.tech"
+                                    target="_blank" rel="noopener">Digia</a></span>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                            <circle cx="12" cy="9" r="2.5" />
+                        </svg>
+                        <div class="overview-card-content">
+                            <span class="overview-card-label">Location</span>
+                            <span class="overview-card-value">India</span>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect x="2" y="9" width="4" height="12" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                        <div class="overview-card-content">
+                            <span class="overview-card-label">LinkedIn</span>
+                            <span class="overview-card-value"><a href="https://linkedin.com/in/ramlal-suthar"
+                                    target="_blank" rel="noopener">Ramlal Suthar</a></span>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                        <div class="overview-card-content">
+                            <span class="overview-card-label">Email</span>
+                            <span class="overview-card-value"><a
+                                    href="mailto:ramsthr38@gmail.com">ramsthr38@gmail.com</a></span>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                        <div class="overview-card-content">
+                            <span class="overview-card-label">Phone</span>
+                            <span class="overview-card-value">+91 7232841614</span>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                        <div class="overview-card-content">
+                            <span class="overview-card-label">Company</span>
+                            <span class="overview-card-value"><a href="https://digia.tech" target="_blank"
+                                    rel="noopener">digia.tech</a></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── ABOUT ── -->
+            <section class="section reveal" id="about">
+                <h2 class="section-title">About</h2>
+                <ul class="about-list">
+                    <li>early engineer with end-to-end ownership of mobile platforms and SDKs, specializing in
+                        server-driven UI architectures and scalable system design</li>
+                    <li>strong expertise across Flutter, Android (Jetpack Compose), Go, and full-stack development —
+                        shipped production systems across all</li>
+                    <li>proven track record of building reusable component libraries, SDKs, and backend services from
+                        the ground up</li>
+                    <li>experienced in AWS, Firebase, RESTful API design, and CI/CD pipelines</li>
+                    <li>known for high execution velocity, strong ownership, and shipping reliable systems in
+                        fast-moving startup environments</li>
+                    <li class="sub">deep interest in payment workflows, large-scale distributed systems, and
+                        infrastructure reliability</li>
+                </ul>
+            </section>
+
+            <!-- ── STACK ── -->
+            <section class="section reveal" id="stack">
+                <h2 class="section-title">Stack</h2>
+                <div class="stack-categories">
+
+                    <div>
+                        <div class="stack-cat-label">Mobile &amp; Frontend</div>
+                        <div class="stack-grid">
+                            <a class="stack-pill" href="https://flutter.dev/" target="_blank" rel="noopener"><i
+                                    class="devicon-flutter-plain colored"></i> Flutter</a>
+                            <a class="stack-pill" href="https://dart.dev/" target="_blank" rel="noopener"><i
+                                    class="devicon-dart-plain colored"></i> Dart</a>
+                            <a class="stack-pill" href="https://developer.android.com/" target="_blank"
+                                rel="noopener"><i class="devicon-android-plain colored"></i> Android</a>
+                            <a class="stack-pill" href="https://kotlinlang.org/" target="_blank" rel="noopener"><i
+                                    class="devicon-kotlin-plain colored"></i> Kotlin</a>
+                            <a class="stack-pill" href="https://developer.android.com/jetpack/compose" target="_blank"
+                                rel="noopener"><i class="devicon-jetpackcompose-plain colored"></i> Jetpack Compose</a>
+                            <a class="stack-pill" href="https://react.dev/" target="_blank" rel="noopener"><i
+                                    class="devicon-react-original colored"></i> React</a>
+                            <a class="stack-pill" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                                target="_blank" rel="noopener"><i class="devicon-javascript-plain colored"></i>
+                                JavaScript</a>
+                            <a class="stack-pill" href="https://developer.apple.com/swift/" target="_blank"
+                                rel="noopener"><i class="devicon-swift-plain colored"></i> Swift</a>
+                            <a class="stack-pill" href="https://developer.apple.com/ios/" target="_blank"
+                                rel="noopener"><i class="devicon-apple-original"></i> iOS</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="stack-cat-label">Backend &amp; Languages</div>
+                        <div class="stack-grid">
+                            <a class="stack-pill" href="https://go.dev/" target="_blank" rel="noopener"><i
+                                    class="devicon-go-original-wordmark colored"></i> Go</a>
+                            <a class="stack-pill" href="https://nodejs.org/" target="_blank" rel="noopener"><i
+                                    class="devicon-nodejs-plain colored"></i> Node.js</a>
+                            <a class="stack-pill" href="https://www.java.com/" target="_blank" rel="noopener"><i
+                                    class="devicon-java-plain colored"></i> Java</a>
+                            <span class="stack-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" y1="14" x2="21" y2="3" />
+                                </svg> REST APIs</span>
+                            <a class="stack-pill" href="https://graphql.org/" target="_blank" rel="noopener"><i
+                                    class="devicon-graphql-plain colored"></i> GraphQL</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="stack-cat-label">Cloud &amp; DevOps</div>
+                        <div class="stack-grid">
+                            <a class="stack-pill" href="https://aws.amazon.com/" target="_blank" rel="noopener"><i
+                                    class="devicon-amazonwebservices-plain-wordmark colored"></i> AWS</a>
+                            <a class="stack-pill" href="https://firebase.google.com/" target="_blank" rel="noopener"><i
+                                    class="devicon-firebase-plain colored"></i> Firebase</a>
+                            <a class="stack-pill" href="https://www.docker.com/" target="_blank" rel="noopener"><i
+                                    class="devicon-docker-plain colored"></i> Docker</a>
+                            <a class="stack-pill" href="https://kubernetes.io/" target="_blank" rel="noopener"><i
+                                    class="devicon-kubernetes-plain colored"></i> Kubernetes</a>
+                            <a class="stack-pill" href="https://www.jenkins.io/" target="_blank" rel="noopener"><i
+                                    class="devicon-jenkins-line colored"></i> Jenkins</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="stack-cat-label">Tools &amp; Data</div>
+                        <div class="stack-grid">
+                            <a class="stack-pill" href="https://git-scm.com/" target="_blank" rel="noopener"><i
+                                    class="devicon-git-plain colored"></i> Git</a>
+                            <a class="stack-pill" href="https://github.com/" target="_blank" rel="noopener"><i
+                                    class="devicon-github-original"></i> GitHub</a>
+                            <a class="stack-pill" href="https://www.linux.org/" target="_blank" rel="noopener"><i
+                                    class="devicon-linux-plain"></i> Linux</a>
+                            <span class="stack-pill"><i class="devicon-postgresql-plain colored"></i> SQL</span>
+                            <span class="stack-pill"><i class="devicon-mongodb-plain colored"></i> NoSQL</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="stack-cat-label">Practices</div>
+                        <div class="stack-grid">
+                            <span class="stack-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <polyline points="16 18 22 12 16 6" />
+                                    <polyline points="8 6 2 12 8 18" />
+                                </svg> TDD</span>
+                            <span class="stack-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3" />
+                                    <path
+                                        d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                                </svg> System Design</span>
+                            <span class="stack-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                                </svg> OOP</span>
+                            <span class="stack-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M18 20V10M12 20V4M6 20v-6" />
+                                </svg> DSA</span>
+                            <span class="stack-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg> Scalability &amp; Reliability</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ── EXPERIENCE ── -->
+            <section class="section reveal" id="experience">
+                <h2 class="section-title">Experience</h2>
+                <div class="exp-list">
+
+                    <!-- Digia — Full-time -->
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <div class="exp-company-logo">D</div>
+                            <div class="exp-company-info">
+                                <span class="exp-company-name">Digia</span>
+                                <span class="exp-company-sub">Platform, SDK &amp; Infrastructure</span>
+                            </div>
+                            <span class="badge badge-green">Current</span>
+                        </div>
+                        <div class="exp-role">Early Engineer</div>
+                        <div class="exp-meta">
+                            <span class="exp-meta-tag">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" />
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                                </svg>
+                                full-time
+                            </span>
+                            <span class="exp-meta-tag">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" />
+                                    <line x1="16" y1="2" x2="16" y2="6" />
+                                    <line x1="8" y1="2" x2="8" y2="6" />
+                                    <line x1="3" y1="10" x2="21" y2="10" />
+                                </svg>
+                                aug 2023 — present
+                            </span>
+                        </div>
+                        <ul class="exp-bullets">
+                            <li>joined Digia at an early stage and played a <strong>key role in building the core
+                                    product from zero to production</strong></li>
+                            <li>architected and delivered <strong>Digia UI SDK (Flutter + Android)</strong> enabling
+                                server-driven rendering of native UI from JSON — reducing app release dependency and
+                                cutting feature delivery time by <strong>60–70%</strong></li>
+                            <li>designed and built an <strong>Android Jetpack Compose SDK from scratch in 2
+                                    weeks</strong>, including layout engine, modifiers, styling system, actions,
+                                navigation, lifecycle, and state handling</li>
+                            <li>built a <strong>React Native–based SDK trial environment in 1 week</strong> to validate
+                                server-driven UI concepts and enable faster experimentation</li>
+                            <li>developed <strong>50+ reusable UI components</strong> forming a scalable, versioned
+                                component library used across multiple apps</li>
+                            <li>implemented <strong>real-time preview infrastructure</strong> — instant visualization of
+                                dashboard changes, shrinking feedback loops from days to minutes</li>
+                            <li>contributed to backend services in Go/Node.js — REST APIs, schema versioning, and
+                                runtime configuration delivery</li>
+                            <li class="sub">integrated CI/CD pipelines (Jenkins), automated builds, deployments, and
+                                environment management</li>
+                            <li class="sub">worked extensively with AWS, Firebase, Docker, and system observability for
+                                production readiness</li>
+                            <li class="sub">acted as App Manager for Digia's Preview Android APK — owning release
+                                builds, versioning, stability</li>
+                        </ul>
+                        <div class="tech-pills">
+                            <span class="tech-pill">flutter</span>
+                            <span class="tech-pill">dart</span>
+                            <span class="tech-pill">android</span>
+                            <span class="tech-pill">kotlin</span>
+                            <span class="tech-pill">jetpack compose</span>
+                            <span class="tech-pill">react native</span>
+                            <span class="tech-pill">go</span>
+                            <span class="tech-pill">node.js</span>
+                            <span class="tech-pill">aws</span>
+                            <span class="tech-pill">firebase</span>
+                            <span class="tech-pill">docker</span>
+                            <span class="tech-pill">jenkins</span>
+                        </div>
+                    </div>
+
+                    <!-- Digia — Intern -->
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <div class="exp-company-logo">D</div>
+                            <div class="exp-company-info">
+                                <span class="exp-company-name">Local Business (via Digia)</span>
+                                <span class="exp-company-sub">Mobile Development</span>
+                            </div>
+                        </div>
+                        <div class="exp-role">Mobile App Developer Intern</div>
+                        <div class="exp-meta">
+                            <span class="exp-meta-tag">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" />
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                                </svg>
+                                internship
+                            </span>
+                            <span class="exp-meta-tag">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" />
+                                    <line x1="16" y1="2" x2="16" y2="6" />
+                                    <line x1="8" y1="2" x2="8" y2="6" />
+                                    <line x1="3" y1="10" x2="21" y2="10" />
+                                </svg>
+                                may 2023 — jul 2023
+                            </span>
+                        </div>
+                        <ul class="exp-bullets">
+                            <li>built, tested, and launched <strong>2 production Flutter apps</strong> end-to-end —
+                                published on Google Play Store</li>
+                            <li>implemented dynamic JSON-based UI rendering, enabling backend-controlled UI changes
+                                without app redeployment</li>
+                            <li>integrated Firebase Auth, Firestore, AWS services, and optimized API usage for
+                                performance and scalability</li>
+                        </ul>
+                        <div class="tech-pills">
+                            <span class="tech-pill">flutter</span>
+                            <span class="tech-pill">dart</span>
+                            <span class="tech-pill">firebase</span>
+                            <span class="tech-pill">aws</span>
+                            <span class="tech-pill">rest apis</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ── PROJECTS ── -->
+            <section class="section reveal" id="projects">
+                <h2 class="section-title">Projects</h2>
+                <div class="proj-list">
+
+                    <div class="proj-card">
+                        <div class="proj-header">
+                            <div class="proj-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                    <polyline points="9 22 9 12 15 12 15 22" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="proj-name">Airspace</div>
+                        <div class="proj-period">Hotel &amp; Guest Booking Backend</div>
+                        <div class="proj-desc">
+                            Designed and implemented backend services for a hotel / guest booking system. Modeled core
+                            domain entities: Host, Customer, Property, Booking, History, Ratings. Built REST APIs for
+                            onboarding, search, booking lifecycle, history tracking, and role-based access control.
+                            Focused on clean architecture, scalability, and production-ready design.
+                        </div>
+                        <div class="tech-pills">
+                            <span class="tech-pill">go</span>
+                            <span class="tech-pill">rest apis</span>
+                            <span class="tech-pill">system design</span>
+                            <span class="tech-pill">sql</span>
+                            <span class="tech-pill">clean architecture</span>
+                        </div>
+                    </div>
+
+                    <div class="proj-card">
+                        <div class="proj-header">
+                            <div class="proj-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="9" cy="21" r="1" />
+                                    <circle cx="20" cy="21" r="1" />
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="proj-name">Unigets</div>
+                        <div class="proj-period">D2C / Affiliate Commerce Platform</div>
+                        <div class="proj-desc">
+                            Built a platform to sell trending products via external websites and Instagram ad funnels.
+                            Implemented product discovery, redirection flows, and basic conversion tracking. Enabled
+                            rapid experimentation with landing pages and demand validation.
+                        </div>
+                        <div class="tech-pills">
+                            <span class="tech-pill">node.js</span>
+                            <span class="tech-pill">javascript</span>
+                            <span class="tech-pill">rest apis</span>
+                            <span class="tech-pill">tracking</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ── EDUCATION ── -->
+            <section class="section reveal" id="education">
+                <h2 class="section-title">Education</h2>
+                <div class="edu-item">
+                    <div class="edu-header">
+                        <div class="edu-icon">🎓</div>
+                        <div>
+                            <div class="edu-degree">B.Tech — Computer Science Engineering</div>
+                            <div class="edu-school">Government Engineering College, Ajmer</div>
+                        </div>
+                    </div>
+                    <div class="edu-meta">
+                        <span>2019 — 2023</span>
+                        <span class="edu-cgpa">CGPA 7.8 / 10</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── CONTACT ── -->
+            <section class="section reveal" id="contact">
+                <h2 class="section-title">Contact</h2>
+                <div class="contact-heading">Let's build something great together.</div>
+                <div class="contact-subtext">Open to full-time roles in SDK engineering, mobile platform, and systems
+                    development.</div>
+                <div class="contact-links">
+                    <a class="contact-link" href="https://github.com/ramlalsuthar03" target="_blank" rel="noopener">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.8-.26.8-.57v-2.23c-3.34.72-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 6.8c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                        </svg>
+                        GitHub
+                    </a>
+                    <a class="contact-link" href="https://linkedin.com/in/ramlal-suthar" target="_blank" rel="noopener">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43A2.06 2.06 0 1 1 5.34 3.3a2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a class="contact-link" href="mailto:ramsthr38@gmail.com">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                        Email
+                    </a>
+                    <a class="contact-link" href="tel:+917232841614">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                        Phone
+                    </a>
+                    <a class="contact-link" href="https://digia.tech" target="_blank" rel="noopener">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        </svg>
+                        digia.tech
+                    </a>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                <span>inspired by <a href="https://nishchay17.com" target="_blank"
+                        rel="noopener">nishchay17.com</a></span>
+                <span>built by <a href="https://github.com/ramlalsuthar03" target="_blank" rel="noopener">ramlal
+                        suthar</a></span>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Scroll to top -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15" />
+        </svg>
+    </button>
+
+    <script>
+        /* ═══ THEME ═══ */
+        const html = document.documentElement;
+        const iconSun = document.getElementById('iconSun');
+        const iconMoon = document.getElementById('iconMoon');
+        function applyTheme(t) {
+            html.setAttribute('data-theme', t);
+            localStorage.setItem('theme', t);
+            iconSun.style.display = t === 'dark' ? 'block' : 'none';
+            iconMoon.style.display = t === 'dark' ? 'none' : 'block';
+        }
+        function toggleTheme() { applyTheme(html.dataset.theme === 'dark' ? 'light' : 'dark'); }
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(saved || (prefersDark ? 'dark' : 'light'));
+        document.getElementById('themeBtn').addEventListener('click', toggleTheme);
+        document.getElementById('cmdToggleTheme').addEventListener('click', () => { toggleTheme(); closeCmd(); });
+
+        /* ═══ COMMAND PALETTE ═══ */
+        const overlay = document.getElementById('cmdOverlay');
+        const cmdInput = document.getElementById('cmdInput');
+        const itemsList = document.getElementById('cmdItems');
+        function openCmd() { overlay.classList.add('open'); cmdInput.value = ''; filterCmdItems(''); cmdInput.focus(); }
+        function closeCmd() { overlay.classList.remove('open'); }
+        document.getElementById('cmdBtn').addEventListener('click', openCmd);
+        overlay.addEventListener('click', e => { if (e.target === overlay) closeCmd(); });
+        document.addEventListener('keydown', e => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); overlay.classList.contains('open') ? closeCmd() : openCmd(); }
+            if (e.key === 'Escape') closeCmd();
+        });
+        cmdInput.addEventListener('input', e => filterCmdItems(e.target.value.toLowerCase()));
+        function filterCmdItems(q) {
+            itemsList.querySelectorAll('.cmd-item').forEach(el => {
+                el.style.display = el.textContent.trim().toLowerCase().includes(q) ? '' : 'none';
+            });
+        }
+        itemsList.querySelectorAll('.cmd-item[data-href]').forEach(el => {
+            el.addEventListener('click', () => {
+                const href = el.dataset.href;
+                if (href.startsWith('mailto:') || href.startsWith('http')) { window.open(href, '_blank'); }
+                else { window.location.hash = href; }
+                closeCmd();
+            });
+        });
+
+        /* ═══ SIDEBAR ACTIVE ═══ */
+        const sections = document.querySelectorAll('.section[id]');
+        const sideLinks = document.querySelectorAll('.sidebar-nav a');
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    sideLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + entry.target.id));
+                }
+            });
+        }, { rootMargin: '-15% 0px -75% 0px' });
+        sections.forEach(s => io.observe(s));
+
+        /* ═══ SCROLL REVEAL ═══ */
+        const revealIO = new IntersectionObserver(entries => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealIO.unobserve(entry.target); } });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
+
+        /* ═══ SCROLL TOP ═══ */
+        const scrollBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => scrollBtn.classList.toggle('show', window.scrollY > 320));
+        scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+</body>
+
+</html>
