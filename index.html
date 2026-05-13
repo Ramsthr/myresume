@@ -958,6 +958,30 @@
             transform: translateY(-1px);
         }
 
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 2px 8px;
+            border-radius: 100px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--green);
+            background: var(--green-glow);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+        }
+
+        .live-badge::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
         /* ═══ EDUCATION ═══ */
         .edu-item {
             display: flex;
@@ -1790,6 +1814,51 @@
             <section class="section reveal" id="projects">
                 <h2 class="section-title">Projects</h2>
                 <div class="proj-list">
+
+                    <div class="proj-card">
+                        <div class="proj-header">
+                            <div class="proj-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-4.35-4.35" />
+                                    <path d="M11 8v6M8 11h6" />
+                                </svg>
+                            </div>
+                            <a href="https://answerrank-chi.vercel.app/" target="_blank" class="proj-link"> <span
+                                    class="live-badge">Live</span> </a>
+                        </div>
+
+                        <div class="proj-name">AnswerRank
+                            <a href="https://github.com/HyperLocalOrg/answerrank" target="_blank" class="proj-link">↗
+                            </a>
+                        </div>
+                        <div class="proj-period">AEO Diagnostic · AI Search Ranking System</div>
+
+                        <div class="proj-desc">
+                            Built an AEO (Answer Engine Optimization) diagnostic tool that evaluates how products rank
+                            across AI search systems (Claude, Gemini) for real buyer queries.
+                            Designed a multi-model evaluation pipeline using structured prompting to simulate top-5
+                            recommendations and compute ranking, visibility, and competitive positioning.
+                            Implemented structured prompting + response normalization to ensure consistent outputs
+                            across
+                            different AI systems.
+                            Built an insight generation system to surface buyer decision criteria, missing signals, and
+                            reasons for loss against competitors.
+                            Added a caching layer (12-hour TTL) to reduce API cost and improve response latency for
+                            repeated queries. Delivered actionable competitive ranking reports.
+                        </div>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill">llm</span>
+                            <span class="tech-pill">claude api</span>
+                            <span class="tech-pill">gemini api</span>
+                            <span class="tech-pill">structured prompting</span>
+                            <span class="tech-pill">aeo</span>
+                            <span class="tech-pill">caching</span>
+                            <span class="tech-pill">competitive analysis</span>
+                        </div>
+                    </div>
 
                     <div class="proj-card">
                         <div class="proj-header">
