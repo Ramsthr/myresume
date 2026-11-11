@@ -388,7 +388,8 @@
             line-height: 1.3;
             letter-spacing: -0.025em;
             margin-bottom: 18px;
-            max-width: 700px;
+            max-width: 760px;
+            text-wrap: balance;
             animation: fadeUp 0.8s ease both 0.1s;
         }
 
@@ -804,6 +805,12 @@
             font-size: 16px;
             font-weight: 700;
             color: var(--fg);
+        }
+
+        .exp-role-next {
+            margin-top: 8px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
         }
 
         .exp-meta {
@@ -1413,13 +1420,6 @@
             <span class="logo-name">ramlal suthar</span>
         </a>
         <div class="header-spacer"></div>
-        <nav class="header-nav">
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#stack">Stack</a>
-            <a href="#education">Education</a>
-            <a href="#contact">Contact</a>
-        </nav>
         <div class="header-actions">
             <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">
                 <svg id="iconSun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1464,14 +1464,13 @@
                     Open to opportunities
                 </div>
                 <h1 class="hero-heading">
-                    I build <em>mobile SDKs</em> and the platforms behind them.
+                    I build <em>mobile SDKs</em> and the <span style="white-space: nowrap">full-stack</span> platforms behind them.
                 </h1>
                 <p class="hero-intro">
                     I'm <strong>Ramlal Suthar</strong>, an early engineer at <a href="https://digia.tech"
-                        target="_blank" rel="noopener">Digia</a>, which I joined pre-product in 2023. I work
-                    full-stack: SDKs in Flutter, Android, iOS and React Native, plus the Go and Node.js services,
-                    React dashboard and analytics behind them. Right now that's <strong>Digia Engage</strong>,
-                    in-app campaigns that marketers design in a dashboard and that render natively in customer apps.
+                        target="_blank" rel="noopener">Digia</a> since 2023, working full-stack across mobile SDKs and
+                    the services behind them. Right now I'm building <strong>Digia Engage</strong>: in-app campaigns
+                    that marketers design in a dashboard and that render natively in customer apps.
                 </p>
                 <div class="hero-actions">
                     <a class="btn-primary" href="mailto:ramsthr38@gmail.com">
@@ -1500,6 +1499,24 @@
                     </a>
                 </div>
 
+                <div class="impact-bar">
+                    <div class="impact-stat">
+                        <span class="impact-num">Early Engineer</span>
+                        <span class="impact-lbl">joined Digia pre-product · 3+ yrs</span>
+                    </div>
+                    <div class="impact-stat">
+                        <span class="impact-num">Full-Stack</span>
+                        <span class="impact-lbl">mobile · backend · infra · DevOps</span>
+                    </div>
+                    <div class="impact-stat">
+                        <span class="impact-num">Cross-Platform</span>
+                        <span class="impact-lbl">Flutter · Android · iOS · React Native</span>
+                    </div>
+                    <div class="impact-stat">
+                        <span class="impact-num">0 → 1 Builder</span>
+                        <span class="impact-lbl">shipped Digia UI &amp; Digia Engage</span>
+                    </div>
+                </div>
             </section>
 
 
@@ -1516,7 +1533,7 @@
                             <div class="exp-company-logo">D</div>
                             <div class="exp-company-info">
                                 <span class="exp-company-name">Digia</span>
-                                <span class="exp-company-sub">Platform, SDK &amp; Infrastructure</span>
+                                <span class="exp-company-sub">Platform, SDK &amp; Infrastructure · May 2023 — Present</span>
                             </div>
                             <span class="badge badge-green">Current</span>
                         </div>
@@ -1527,7 +1544,7 @@
                                     <rect x="2" y="7" width="20" height="14" rx="2" />
                                     <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                                 </svg>
-                                full-time
+                                Full-time
                             </span>
                             <span class="exp-meta-tag">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1536,15 +1553,15 @@
                                     <line x1="8" y1="2" x2="8" y2="6" />
                                     <line x1="3" y1="10" x2="21" y2="10" />
                                 </svg>
-                                aug 2023 — present
+                                Aug 2023 — Present
                             </span>
                         </div>
                         <div class="exp-product">Digia Engage <span class="exp-product-period">in-app engagement SDK ·
-                                feb 2026 — present</span></div>
+                                Feb 2026 — Present</span></div>
                         <ul class="exp-bullets">
-                            <li>Work on the <strong>Flutter, Android, iOS and React Native SDKs</strong> that render
-                                dashboard-designed campaigns (nudges, surveys, product guides, PiP, inline stories)
-                                natively in customer apps. Built the in-app survey and product-guide experiences.</li>
+                            <li>Built the <strong>in-app survey and product-guide</strong> campaign types in the Flutter, Android,
+                                iOS and React Native SDKs, which render dashboard-designed campaigns (nudges, surveys,
+                                guides, PiP, inline stories) natively in customer apps.</li>
                             <li><strong>Campaign delivery analytics, end to end:</strong> SDK events with drop reasons,
                                 a ClickHouse query behind a new analytics endpoint, and a dashboard panel showing how many
                                 campaigns were triggered, shown or dropped, broken down by cause (frequency cap, blocked by
@@ -1564,11 +1581,11 @@
                         </ul>
 
                         <div class="exp-product">Digia UI &amp; Studio <span class="exp-product-period">server-driven
-                                UI platform · aug 2023 — feb 2026</span></div>
+                                UI platform · Aug 2023 — Feb 2026</span></div>
                         <ul class="exp-bullets">
-                            <li>Contributed to the <strong>Digia UI SDK for Flutter</strong>, which renders native UI from
-                                JSON so teams ship UI changes without an app release, cutting feature delivery time by
-                                about <strong>60–70%</strong>.</li>
+                            <li>Contributed to the <strong>Digia UI SDK for Flutter</strong>, a product that renders native UI
+                                from JSON so teams ship UI changes without an app release; it cut feature delivery time
+                                by about <strong>60–70%</strong>.</li>
                             <li>Built the <strong>Android Jetpack Compose SDK</strong> from scratch, with the first version
                                 in 2 weeks: layout engine, modifiers, styling, actions, navigation and state.</li>
                             <li>Built a React Native prototype SDK in a week to test server-driven UI on React Native,
@@ -1578,6 +1595,31 @@
                             <li>Contributed Go and Node.js services for schema versioning and runtime config delivery,
                                 plus Jenkins CI/CD.</li>
                         </ul>
+
+                        <div class="exp-role exp-role-next">Mobile App Developer Intern</div>
+                        <div class="exp-meta">
+                            <span class="exp-meta-tag">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" />
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                                </svg>
+                                Internship
+                            </span>
+                            <span class="exp-meta-tag">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" />
+                                    <line x1="16" y1="2" x2="16" y2="6" />
+                                    <line x1="8" y1="2" x2="8" y2="6" />
+                                    <line x1="3" y1="10" x2="21" y2="10" />
+                                </svg>
+                                May 2023 — Jul 2023
+                            </span>
+                        </div>
+                        <ul class="exp-bullets">
+                            <li>Built and launched <strong>2 production Flutter apps</strong> for a local business, both
+                                published on Google Play, with Firebase Auth, Firestore and JSON-driven screens.</li>
+                        </ul>
+                        
                         <div class="tech-pills">
                             <span class="tech-pill">flutter</span>
                             <span class="tech-pill">kotlin</span>
@@ -1594,49 +1636,6 @@
                         </div>
                     </div>
 
-                    <!-- Digia — Intern -->
-                    <div class="exp-item">
-                        <div class="exp-header">
-                            <div class="exp-company-logo">D</div>
-                            <div class="exp-company-info">
-                                <span class="exp-company-name">Digia</span>
-                                <span class="exp-company-sub">Client apps for a local business</span>
-                            </div>
-                        </div>
-                        <div class="exp-role">Mobile App Developer Intern</div>
-                        <div class="exp-meta">
-                            <span class="exp-meta-tag">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="2" y="7" width="20" height="14" rx="2" />
-                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                                </svg>
-                                internship
-                            </span>
-                            <span class="exp-meta-tag">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" />
-                                    <line x1="16" y1="2" x2="16" y2="6" />
-                                    <line x1="8" y1="2" x2="8" y2="6" />
-                                    <line x1="3" y1="10" x2="21" y2="10" />
-                                </svg>
-                                may 2023 — jul 2023
-                            </span>
-                        </div>
-                        <ul class="exp-bullets">
-                            <li>Built and launched <strong>2 production Flutter apps</strong> end-to-end, both
-                                published on Google Play.</li>
-                            <li>Implemented JSON-driven UI so the backend could change screens without an app
-                                release, the idea that later became Digia UI.</li>
-                            <li>Integrated Firebase Auth, Firestore and AWS services.</li>
-                        </ul>
-                        <div class="tech-pills">
-                            <span class="tech-pill">flutter</span>
-                            <span class="tech-pill">dart</span>
-                            <span class="tech-pill">firebase</span>
-                            <span class="tech-pill">aws</span>
-                            <span class="tech-pill">rest apis</span>
-                        </div>
-                    </div>
 
                 </div>
             </section>
@@ -1733,7 +1732,7 @@
                             </a></div>
                         <div class="proj-period">AI portfolio platform</div>
                         <div class="proj-desc">
-                            A portfolio site where visitors can ask an AI about the owner's resume. I built the Go
+                            A portfolio site where visitors can ask an AI about the owner's resume. Built the Go
                             services: JWT auth, profiles, and a pipeline that parses an uploaded PDF resume, embeds it in
                             Qdrant and answers questions with retrieval-augmented generation. Profiles live in MongoDB,
                             behind a rate-limited gateway.
@@ -1836,9 +1835,9 @@
             <!-- ── CONTACT ── -->
             <section class="section reveal" id="contact">
                 <h2 class="section-title">Contact</h2>
-                <div class="contact-heading">Let's build something great together.</div>
-                <div class="contact-subtext">Based in India. Open to full-time roles in SDK engineering, mobile platform, and systems
-                    development.</div>
+                <div class="contact-heading">Get in touch</div>
+                <div class="contact-subtext">Based in India. Open to full-time roles in SDK engineering, mobile platforms and
+                    full-stack product work. Email is the fastest way to reach me.</div>
                 <div class="contact-links">
                     <a class="contact-link" href="https://github.com/Ramsthr" target="_blank" rel="noopener">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">

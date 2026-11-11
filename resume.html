@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  Source for resume.pdf (the "Download resume" button on index.html).
+  Regenerate after editing:
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --no-pdf-header-footer --print-to-pdf=resume.pdf file://$PWD/resume.html
+-->
+<head>
+    <meta charset="UTF-8" />
+    <title>Ramlal Suthar — Resume</title>
+    <style>
+        @page { size: A4; margin: 12mm 14mm; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+            font-size: 9.6pt;
+            line-height: 1.38;
+            color: #111;
+            background: #fff;
+            max-width: 182mm;
+            margin: 0 auto;
+        }
+        a { color: inherit; text-decoration: none; }
+        header { border-bottom: 1.2px solid #111; padding-bottom: 6px; margin-bottom: 8px; }
+        h1 { font-size: 19pt; letter-spacing: -0.01em; }
+        .tagline { font-size: 10pt; color: #333; margin-top: 1px; }
+        .contacts { font-size: 9pt; color: #333; margin-top: 4px; }
+        .contacts span + span::before { content: "·"; margin: 0 6px; color: #999; }
+        h2 {
+            font-size: 9pt; letter-spacing: 0.08em; text-transform: uppercase;
+            color: #444; border-bottom: 0.6px solid #bbb; padding-bottom: 2px; margin: 9px 0 5px;
+        }
+        .row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+        .role { font-weight: 700; font-size: 10.2pt; }
+        .title { font-weight: 700; font-style: italic; margin-top: 2px; }
+        .date { font-size: 9pt; color: #444; white-space: nowrap; }
+        .sub { font-weight: 600; margin-top: 5px; }
+        .sub .muted { font-weight: 400; color: #555; }
+        ul { padding-left: 14px; margin-top: 2px; }
+        li { margin: 1.5px 0; }
+        .proj { margin-top: 4px; }
+        .proj b { font-weight: 700; }
+        .skills div { margin: 1.5px 0; }
+        .skills b { display: inline-block; min-width: 108px; }
+        p.summary { color: #222; }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Ramlal Suthar</h1>
+        <div class="tagline">Early Engineer · Mobile SDKs &amp; Full-Stack</div>
+        <div class="contacts">
+            <span>India</span>
+            <span><a href="mailto:ramsthr38@gmail.com">ramsthr38@gmail.com</a></span>
+            <span><a href="https://linkedin.com/in/ramlal-suthar">linkedin.com/in/ramlal-suthar</a></span>
+            <span><a href="https://github.com/Ramsthr">github.com/Ramsthr</a></span>
+        </div>
+    </header>
+
+    <p class="summary">Early engineer at Digia since 2023. I build mobile SDKs in Flutter, Android, iOS and React
+        Native, and the Go/Node.js services, React dashboard and analytics behind them.</p>
+
+    <h2>Experience</h2>
+    <div class="row"><span class="role">Digia</span><span class="date">May 2023 — Present</span></div>
+    <div class="row"><span class="title">Early Engineer · Full-time</span><span class="date">Aug 2023 — Present</span></div>
+
+    <div class="sub">Digia Engage <span class="muted">· in-app engagement SDK · Feb 2026 — Present</span></div>
+    <ul>
+        <li>Built the in-app survey and product-guide campaign types in the Flutter, Android, iOS and React Native
+            SDKs that render dashboard-designed campaigns natively in customer apps.</li>
+        <li>Built campaign delivery analytics end to end: SDK events with drop reasons, a ClickHouse-backed analytics
+            endpoint, and a dashboard panel showing triggered, shown and dropped campaigns by cause.</li>
+        <li>Added SDK compatibility checks: the dashboard derives each campaign's minimum SDK version from a
+            capability registry and warns before live changes; the backend filters campaigns by SDK version.</li>
+        <li>Built the MoEngage and WebEngage integrations and contributed to CleverTap, including suppressing the
+            platform's own in-app message so users don't see the same campaign twice.</li>
+        <li>Started the React Native SDK (native bridge, Old and New Architecture). Wrote unit tests in each core SDK
+            and Maestro end-to-end flows in the shared cross-platform test kit with golden snapshots.</li>
+    </ul>
+
+    <div class="sub">Digia UI &amp; Studio <span class="muted">· server-driven UI platform · Aug 2023 — Feb 2026</span></div>
+    <ul>
+        <li>Contributed to the Digia UI SDK for Flutter, a product that renders native UI from JSON so teams ship UI
+            changes without an app release; it cut feature delivery time by about 60–70%.</li>
+        <li>Built the Android Jetpack Compose SDK from scratch, first version in 2 weeks (layout engine, modifiers,
+            styling, actions, navigation, state); built a React Native prototype SDK in a week.</li>
+        <li>Developed 50+ components for the shared, versioned component library; worked on real-time on-device
+            preview and managed Preview Android app releases; contributed Go/Node.js services and Jenkins CI/CD.</li>
+    </ul>
+
+    <div class="row" style="margin-top:6px"><span class="title">Mobile App Developer Intern · Internship</span><span class="date">May 2023 — Jul 2023</span></div>
+    <ul>
+        <li>Built and launched 2 production Flutter apps for a local business on Google Play (Firebase Auth,
+            Firestore, JSON-driven screens).</li>
+    </ul>
+
+    <h2>Projects</h2>
+    <div class="proj"><b>AnswerRank</b> — Tracks how often Claude and Gemini recommend a product for real buyer
+        questions: collects each model's top 5 picks, normalises answers and reports position against competitors.
+        Live demo.</div>
+    <div class="proj"><b>TradeSense AI</b> — Go backend that computes win rate, risk-reward, holding time and MFE/MAE
+        per trade to flag costly habits; K-means groups traders by behaviour and an LLM writes the coaching.</div>
+    <div class="proj"><b>UGen</b> — AI portfolio platform: Go services for JWT auth, profiles and a RAG pipeline that
+        parses PDF resumes into Qdrant to answer questions; MongoDB behind a rate-limited gateway.</div>
+
+    <h2>Skills</h2>
+    <div class="skills">
+        <div><b>Mobile SDKs</b> Flutter/Dart, Kotlin, Jetpack Compose, Swift/SwiftUI, React Native</div>
+        <div><b>Backend &amp; data</b> Go, Node.js, TypeScript, ClickHouse, SQL, MongoDB</div>
+        <div><b>Web &amp; infra</b> React, AWS, Firebase, Docker, Jenkins, Maestro</div>
+    </div>
+
+    <h2>Education</h2>
+    <div class="row"><span><b>B.Tech, Computer Science Engineering</b> — Government Engineering College, Ajmer ·
+            CGPA 7.8/10</span><span class="date">2019 — 2023</span></div>
+</body>
+
+</html>
