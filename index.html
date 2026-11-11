@@ -2,14 +2,15 @@
 <html lang="en" data-theme="dark">
 
 <head>
+    <script>document.documentElement.classList.add('js')</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ramlal Suthar — Early Engineer · Mobile Platform / SDK · Full-Stack</title>
+    <title>Ramlal Suthar — Early Engineer · Mobile SDKs · Full-Stack</title>
     <meta name="description"
-        content="Ramlal Suthar — Early engineer shipping end-to-end across mobile, backend, and infrastructure — from SDKs and server-driven UIs to APIs, DevOps, and cloud systems." />
-    <meta property="og:title" content="Ramlal Suthar — Early Engineer" />
+        content="Ramlal Suthar builds mobile SDKs and the platforms behind them. Early engineer at Digia, working full-stack across Flutter, Android, iOS, React Native and backend services." />
+    <meta property="og:title" content="Ramlal Suthar — Early Engineer · Full-Stack" />
     <meta property="og:description"
-        content="Early engineer building full-stack products — mobile SDKs, backend APIs, infrastructure, and scalable systems at Digia." />
+        content="I build mobile SDKs and the platforms behind them. Early engineer at Digia, working full-stack." />
     <meta property="og:type" content="website" />
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>⚡</text></svg>" />
@@ -33,8 +34,8 @@
             --bg-secondary: #fafafa;
             --bg-tertiary: #f5f5f5;
             --fg: #0a0a0a;
-            --fg-muted: #555;
-            --fg-subtle: #999;
+            --fg-muted: #4a4a4a;
+            --fg-subtle: #6b6b6b;
             --border: #e8e8e8;
             --border-strong: #ccc;
             --accent: #0070f3;
@@ -55,8 +56,8 @@
             --bg-secondary: #0f0f11;
             --bg-tertiary: #141416;
             --fg: #f0f0f0;
-            --fg-muted: #8a8a8a;
-            --fg-subtle: #505050;
+            --fg-muted: #a3a3a3;
+            --fg-subtle: #808080;
             --border: #1c1c1e;
             --border-strong: #2a2a2e;
             --accent: #3b9eff;
@@ -151,13 +152,13 @@
             }
         }
 
-        .reveal {
+        .js .reveal {
             opacity: 0;
             transform: translateY(18px);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        .reveal.visible {
+        .js .reveal.visible {
             opacity: 1;
             transform: none;
         }
@@ -291,7 +292,7 @@
         }
 
         .cmd-btn kbd {
-            font-size: 10px;
+            font-size: 12.5px;
             font-family: 'JetBrains Mono', monospace;
             background: var(--pill-bg);
             border: 1px solid var(--border);
@@ -512,7 +513,7 @@
         }
 
         .impact-lbl {
-            font-size: 11.5px;
+            font-size: 12.5px;
             color: var(--fg-subtle);
             line-height: 1.4;
         }
@@ -599,7 +600,7 @@
         }
 
         .overview-card-label {
-            font-size: 10.5px;
+            font-size: 12px;
             color: var(--fg-subtle);
             text-transform: uppercase;
             letter-spacing: 0.06em;
@@ -665,7 +666,7 @@
         }
 
         .stack-cat-label {
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.06em;
@@ -766,7 +767,7 @@
         }
 
         .exp-company-sub {
-            font-size: 11.5px;
+            font-size: 12.5px;
             color: var(--fg-subtle);
         }
 
@@ -774,7 +775,7 @@
             display: inline-flex;
             align-items: center;
             gap: 5px;
-            font-size: 10.5px;
+            font-size: 12px;
             padding: 2px 9px;
             border-radius: 100px;
             border: 1px solid var(--border);
@@ -821,12 +822,36 @@
             padding: 2px 8px;
             border-radius: 5px;
             background: var(--pill-bg);
-            font-size: 11px;
+            font-size: 12px;
         }
 
         .exp-meta-tag svg {
             width: 11px;
             height: 11px;
+        }
+
+        .exp-product {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 6px;
+            padding-top: 10px;
+            border-top: 1px dashed var(--border);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--fg);
+        }
+
+        .exp-meta+.exp-product {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .exp-product-period {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--fg-subtle);
         }
 
         .exp-bullets {
@@ -873,7 +898,7 @@
         }
 
         .tech-pill {
-            font-size: 11px;
+            font-size: 12px;
             padding: 2px 9px;
             border-radius: 5px;
             border: 1px solid var(--pill-border);
@@ -938,12 +963,12 @@
         }
 
         .proj-period {
-            font-size: 11px;
+            font-size: 12px;
             color: var(--fg-subtle);
         }
 
         .proj-desc {
-            font-size: 13px;
+            font-size: 14px;
             color: var(--fg-muted);
             line-height: 1.6;
         }
@@ -964,7 +989,7 @@
             gap: 5px;
             padding: 2px 8px;
             border-radius: 100px;
-            font-size: 10px;
+            font-size: 12.5px;
             font-weight: 600;
             letter-spacing: 0.04em;
             text-transform: uppercase;
@@ -1035,7 +1060,7 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            font-size: 11.5px;
+            font-size: 12.5px;
             padding: 3px 10px;
             border-radius: 100px;
             font-weight: 600;
@@ -1169,7 +1194,7 @@
         }
 
         .cmd-section {
-            font-size: 10px;
+            font-size: 12.5px;
             font-weight: 600;
             color: var(--fg-subtle);
             padding: 10px 10px 4px;
@@ -1196,6 +1221,41 @@
         .cmd-item svg {
             color: var(--fg-muted);
             flex-shrink: 0;
+        }
+
+
+        @media (prefers-reduced-motion: reduce) {
+            .js .reveal { opacity: 1; transform: none; transition: none; }
+        }
+
+        /* ═══ PRINT / PDF ═══ */
+        @media print {
+            :root, [data-theme="dark"] {
+                --bg: #fff; --bg-secondary: #fff; --bg-tertiary: #fff; --card-bg: #fff;
+                --fg: #000; --fg-muted: #222; --fg-subtle: #444;
+                --border: #ccc; --border-strong: #ccc; --pill-bg: #f2f2f2; --pill-border: #ccc;
+                --card-shadow: none;
+            }
+            header, .sidebar, .cmd-overlay, .scroll-top, .hero-actions, .hero-badge, footer { display: none !important; }
+            .layout { display: block !important; padding: 0 !important; }
+            main { max-width: none !important; padding: 0 !important; }
+            .js .reveal, .reveal { opacity: 1 !important; transform: none !important; }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .hero, .hero * { opacity: 1 !important; transform: none !important; }
+            .hero-intro { color: var(--fg-muted) !important; }
+            .proj-card, .exp-bullets li, .exp-header { break-inside: avoid; }
+            .section-title, .exp-product { break-after: avoid; }
+            .section, .hero { margin: 0 !important; padding: 14px 0 0 !important; border: none !important; }
+            .exp-list, .proj-list { gap: 14px !important; }
+            .exp-item { padding: 0 !important; border: none !important; }
+            .contact-link::after { content: attr(href); font-size: 11px; color: var(--fg-subtle); margin-left: 4px; }
+            .contact-link[href^="mailto:"]::after { content: "ramsthr38@gmail.com"; }
+            a { color: inherit !important; text-decoration: none; }
+            body { font-size: 12px; }
+        }
+
+        .cmd-item.selected {
+            background: var(--pill-bg);
         }
 
         /* ═══ SCROLL TOP ═══ */
@@ -1290,20 +1350,6 @@
             </div>
             <ul class="cmd-items" id="cmdItems">
                 <li class="cmd-section">Navigation</li>
-                <li class="cmd-item" data-href="#overview"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                    </svg>Overview</li>
-                <li class="cmd-item" data-href="#about"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="8" r="4" />
-                        <path d="M20 21a8 8 0 1 0-16 0" />
-                    </svg>About</li>
-                <li class="cmd-item" data-href="#stack"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2">
-                        <polyline points="16 18 22 12 16 6" />
-                        <polyline points="8 6 2 12 8 18" />
-                    </svg>Stack</li>
                 <li class="cmd-item" data-href="#experience"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2">
                         <rect x="2" y="7" width="20" height="14" rx="2" />
@@ -1313,6 +1359,11 @@
                         stroke="currentColor" stroke-width="2">
                         <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
                     </svg>Projects</li>
+                <li class="cmd-item" data-href="#stack"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <polyline points="16 18 22 12 16 6" />
+                        <polyline points="8 6 2 12 8 18" />
+                    </svg>Stack</li>
                 <li class="cmd-item" data-href="#education"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2">
                         <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
@@ -1323,6 +1374,12 @@
                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                     </svg>Contact</li>
                 <li class="cmd-section">Actions</li>
+                <li class="cmd-item" data-href="resume.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>Download Resume</li>
                 <li class="cmd-item" id="cmdToggleTheme"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="5" />
@@ -1340,7 +1397,7 @@
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                         <polyline points="22,6 12,13 2,6" />
                     </svg>Send Email</li>
-                <li class="cmd-item" data-href="https://github.com/ramlalsuthar03"><svg width="14" height="14"
+                <li class="cmd-item" data-href="https://github.com/Ramsthr"><svg width="14" height="14"
                         viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.8-.26.8-.57v-2.23c-3.34.72-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 6.8c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
@@ -1357,10 +1414,9 @@
         </a>
         <div class="header-spacer"></div>
         <nav class="header-nav">
-            <a href="#overview">Overview</a>
-            <a href="#stack">Stack</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
+            <a href="#stack">Stack</a>
             <a href="#education">Education</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -1391,11 +1447,9 @@
     <div class="layout">
         <aside class="sidebar">
             <nav class="sidebar-nav">
-                <a href="#overview" class="active">Overview</a>
-                <a href="#about">About</a>
-                <a href="#stack">Stack</a>
-                <a href="#experience">Experience</a>
+                <a href="#experience" class="active">Experience</a>
                 <a href="#projects">Projects</a>
+                <a href="#stack">Stack</a>
                 <a href="#education">Education</a>
                 <a href="#contact">Contact</a>
             </nav>
@@ -1410,13 +1464,14 @@
                     Open to opportunities
                 </div>
                 <h1 class="hero-heading">
-                    building <em>products end-to-end</em> — from mobile SDKs &amp; server-driven UIs to backend
-                    services, infrastructure &amp; everything in between
+                    I build <em>mobile SDKs</em> and the platforms behind them.
                 </h1>
                 <p class="hero-intro">
                     I'm <strong>Ramlal Suthar</strong>, an early engineer at <a href="https://digia.tech"
-                        target="_blank" rel="noopener">Digia</a>, I ship across the full stack: mobile platforms,
-                    frontend, backend APIs, DevOps pipelines, and cloud infrastructure. From first commit to production.
+                        target="_blank" rel="noopener">Digia</a>, which I joined pre-product in 2023. I work
+                    full-stack: SDKs in Flutter, Android, iOS and React Native, plus the Go and Node.js services,
+                    React dashboard and analytics behind them. Right now that's <strong>Digia Engage</strong>,
+                    in-app campaigns that marketers design in a dashboard and that render natively in customer apps.
                 </p>
                 <div class="hero-actions">
                     <a class="btn-primary" href="mailto:ramsthr38@gmail.com">
@@ -1427,266 +1482,28 @@
                         </svg>
                         Get in touch
                     </a>
-                    <a class="btn-secondary" href="https://github.com/ramlalsuthar03" target="_blank" rel="noopener">
+                    <a class="btn-secondary" href="https://github.com/Ramsthr" target="_blank" rel="noopener">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                             <path
                                 d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.8-.26.8-.57v-2.23c-3.34.72-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 6.8c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
                         </svg>
                         View GitHub
                     </a>
-                    <!-- <a class="btn-secondary" href="https://digia.tech" target="_blank" rel="noopener">
+                    <a class="btn-secondary" href="resume.pdf" download="Ramlal-Suthar-Resume.pdf">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                            <polyline points="15 3 21 3 21 9" />
-                            <line x1="10" y1="14" x2="21" y2="3" />
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
                         </svg>
-                        digia.tech
-                    </a> -->
+                        Download resume
+                    </a>
                 </div>
 
-                <div class="impact-bar">
-                    <div class="impact-stat">
-                        <span class="impact-num">Early Engineer</span>
-                        <span class="impact-lbl">joined pre-product, built from zero</span>
-                    </div>
-                    <div class="impact-stat">
-                        <span class="impact-num">Fast Builder</span>
-                        <span class="impact-lbl">ship production systems, fast</span>
-                    </div>
-                    <div class="impact-stat">
-                        <span class="impact-num">Full-Stack</span>
-                        <span class="impact-lbl">mobile · backend · infra · DevOps</span>
-                    </div>
-                    <div class="impact-stat">
-                        <span class="impact-num">0 → 1 Mindset</span>
-                        <span class="impact-lbl">thrive in ambiguity &amp; ownership</span>
-                    </div>
-                </div>
-
-                <div class="hiring-banner">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                        <polyline points="22 4 12 14.01 9 11.01" />
-                    </svg>
-                    <div class="hiring-banner-text">
-                        <strong>Why hire me?</strong> I thrive in <strong>0→1 environments</strong> — I built Digia's
-                        entire mobile SDK platform from scratch, shipped a Jetpack Compose SDK in 2 weeks, and
-                        consistently turn ambiguity into production-grade systems. I bring <strong>high execution
-                            velocity</strong>, deep cross-platform expertise, and a startup operator mindset.
-                    </div>
-                </div>
             </section>
 
-            <!-- ── OVERVIEW ── -->
-            <section class="section reveal" id="overview">
-                <h2 class="section-title">Overview</h2>
-                <div class="overview-grid">
-                    <div class="overview-card">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <rect x="2" y="7" width="20" height="14" rx="2" />
-                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                        </svg>
-                        <div class="overview-card-content">
-                            <span class="overview-card-label">Role</span>
-                            <span class="overview-card-value">Early Engineer @ <a href="https://digia.tech"
-                                    target="_blank" rel="noopener">Digia</a></span>
-                        </div>
-                    </div>
-                    <div class="overview-card">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-                            <circle cx="12" cy="9" r="2.5" />
-                        </svg>
-                        <div class="overview-card-content">
-                            <span class="overview-card-label">Location</span>
-                            <span class="overview-card-value">India</span>
-                        </div>
-                    </div>
-                    <div class="overview-card">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                            <rect x="2" y="9" width="4" height="12" />
-                            <circle cx="4" cy="4" r="2" />
-                        </svg>
-                        <div class="overview-card-content">
-                            <span class="overview-card-label">LinkedIn</span>
-                            <span class="overview-card-value"><a href="https://linkedin.com/in/ramlal-suthar"
-                                    target="_blank" rel="noopener">Ramlal Suthar</a></span>
-                        </div>
-                    </div>
-                    <div class="overview-card">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                            <polyline points="22,6 12,13 2,6" />
-                        </svg>
-                        <div class="overview-card-content">
-                            <span class="overview-card-label">Email</span>
-                            <span class="overview-card-value"><a
-                                    href="mailto:ramsthr38@gmail.com">ramsthr38@gmail.com</a></span>
-                        </div>
-                    </div>
-                    <div class="overview-card">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <path
-                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-                        </svg>
-                        <div class="overview-card-content">
-                            <span class="overview-card-label">Phone</span>
-                            <span class="overview-card-value">+91 7232841614</span>
-                        </div>
-                    </div>
-                    <div class="overview-card">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                            <polyline points="15 3 21 3 21 9" />
-                            <line x1="10" y1="14" x2="21" y2="3" />
-                        </svg>
-                        <div class="overview-card-content">
-                            <span class="overview-card-label">Company</span>
-                            <span class="overview-card-value"><a href="https://digia.tech" target="_blank"
-                                    rel="noopener">digia.tech</a></span>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            <!-- ── ABOUT ── -->
-            <section class="section reveal" id="about">
-                <h2 class="section-title">About</h2>
-                <ul class="about-list">
-                    <li>early engineer with end-to-end ownership of mobile platforms and SDKs, specializing in
-                        server-driven UI architectures and scalable system design</li>
-                    <li>strong expertise across Flutter, Android (Jetpack Compose), Go, and full-stack development —
-                        shipped production systems across all</li>
-                    <li>proven track record of building reusable component libraries, SDKs, and backend services from
-                        the ground up</li>
-                    <li>experienced in AWS, Firebase, RESTful API design, and CI/CD pipelines</li>
-                    <li>known for high execution velocity, strong ownership, and shipping reliable systems in
-                        fast-moving startup environments</li>
-                    <li>deep interest in payment workflows, large-scale distributed systems, and
-                        infrastructure reliability</li>
-                </ul>
-            </section>
 
-            <!-- ── STACK ── -->
-            <section class="section reveal" id="stack">
-                <h2 class="section-title">Stack</h2>
-                <div class="stack-categories">
-
-                    <div>
-                        <div class="stack-cat-label">Mobile &amp; Frontend</div>
-                        <div class="stack-grid">
-                            <a class="stack-pill" href="https://flutter.dev/" target="_blank" rel="noopener"><i
-                                    class="devicon-flutter-plain colored"></i> Flutter</a>
-                            <a class="stack-pill" href="https://dart.dev/" target="_blank" rel="noopener"><i
-                                    class="devicon-dart-plain colored"></i> Dart</a>
-                            <a class="stack-pill" href="https://developer.android.com/" target="_blank"
-                                rel="noopener"><i class="devicon-android-plain colored"></i> Android</a>
-                            <a class="stack-pill" href="https://kotlinlang.org/" target="_blank" rel="noopener"><i
-                                    class="devicon-kotlin-plain colored"></i> Kotlin</a>
-                            <a class="stack-pill" href="https://developer.android.com/jetpack/compose" target="_blank"
-                                rel="noopener"><i class="devicon-jetpackcompose-plain colored"></i> Jetpack Compose</a>
-                            <a class="stack-pill" href="https://react.dev/" target="_blank" rel="noopener"><i
-                                    class="devicon-react-original colored"></i> React</a>
-                            <a class="stack-pill" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-                                target="_blank" rel="noopener"><i class="devicon-javascript-plain colored"></i>
-                                JavaScript</a>
-                            <a class="stack-pill" href="https://developer.apple.com/swift/" target="_blank"
-                                rel="noopener"><i class="devicon-swift-plain colored"></i> Swift</a>
-                            <a class="stack-pill" href="https://developer.apple.com/ios/" target="_blank"
-                                rel="noopener"><i class="devicon-apple-original"></i> iOS</a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="stack-cat-label">Backend &amp; Languages</div>
-                        <div class="stack-grid">
-                            <a class="stack-pill" href="https://go.dev/" target="_blank" rel="noopener"><i
-                                    class="devicon-go-original-wordmark colored"></i> Go</a>
-                            <a class="stack-pill" href="https://nodejs.org/" target="_blank" rel="noopener"><i
-                                    class="devicon-nodejs-plain colored"></i> Node.js</a>
-                            <a class="stack-pill" href="https://www.java.com/" target="_blank" rel="noopener"><i
-                                    class="devicon-java-plain colored"></i> Java</a>
-                            <span class="stack-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                    <polyline points="15 3 21 3 21 9" />
-                                    <line x1="10" y1="14" x2="21" y2="3" />
-                                </svg> REST APIs</span>
-                            <a class="stack-pill" href="https://graphql.org/" target="_blank" rel="noopener"><i
-                                    class="devicon-graphql-plain colored"></i> GraphQL</a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="stack-cat-label">Cloud &amp; DevOps</div>
-                        <div class="stack-grid">
-                            <a class="stack-pill" href="https://aws.amazon.com/" target="_blank" rel="noopener"><i
-                                    class="devicon-amazonwebservices-plain-wordmark colored"></i> AWS</a>
-                            <a class="stack-pill" href="https://firebase.google.com/" target="_blank" rel="noopener"><i
-                                    class="devicon-firebase-plain colored"></i> Firebase</a>
-                            <a class="stack-pill" href="https://www.docker.com/" target="_blank" rel="noopener"><i
-                                    class="devicon-docker-plain colored"></i> Docker</a>
-                            <a class="stack-pill" href="https://kubernetes.io/" target="_blank" rel="noopener"><i
-                                    class="devicon-kubernetes-plain colored"></i> Kubernetes</a>
-                            <a class="stack-pill" href="https://www.jenkins.io/" target="_blank" rel="noopener"><i
-                                    class="devicon-jenkins-line colored"></i> Jenkins</a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="stack-cat-label">Tools &amp; Data</div>
-                        <div class="stack-grid">
-                            <a class="stack-pill" href="https://git-scm.com/" target="_blank" rel="noopener"><i
-                                    class="devicon-git-plain colored"></i> Git</a>
-                            <a class="stack-pill" href="https://github.com/" target="_blank" rel="noopener"><i
-                                    class="devicon-github-original"></i> GitHub</a>
-                            <a class="stack-pill" href="https://www.linux.org/" target="_blank" rel="noopener"><i
-                                    class="devicon-linux-plain"></i> Linux</a>
-                            <span class="stack-pill"><i class="devicon-postgresql-plain colored"></i> SQL</span>
-                            <span class="stack-pill"><i class="devicon-mongodb-plain colored"></i> NoSQL</span>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="stack-cat-label">Practices</div>
-                        <div class="stack-grid">
-                            <span class="stack-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <polyline points="16 18 22 12 16 6" />
-                                    <polyline points="8 6 2 12 8 18" />
-                                </svg> TDD</span>
-                            <span class="stack-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="3" />
-                                    <path
-                                        d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-                                </svg> System Design</span>
-                            <span class="stack-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                                </svg> OOP</span>
-                            <span class="stack-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M18 20V10M12 20V4M6 20v-6" />
-                                </svg> DSA</span>
-                            <span class="stack-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                </svg> Scalability &amp; Reliability</span>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
 
             <!-- ── EXPERIENCE ── -->
             <section class="section reveal" id="experience">
@@ -1722,43 +1539,58 @@
                                 aug 2023 — present
                             </span>
                         </div>
+                        <div class="exp-product">Digia Engage <span class="exp-product-period">in-app engagement SDK ·
+                                feb 2026 — present</span></div>
                         <ul class="exp-bullets">
-                            <li>joined Digia at an early stage and played a <strong>key role in building the core
-                                    product from zero to production</strong></li>
-                            <li>architected and delivered <strong>Digia UI SDK (Flutter + Android)</strong> enabling
-                                server-driven rendering of native UI from JSON — reducing app release dependency and
-                                cutting feature delivery time by <strong>60–70%</strong></li>
-                            <li>designed and built an <strong>Android Jetpack Compose SDK from scratch in 2
-                                    weeks</strong>, including layout engine, modifiers, styling system, actions,
-                                navigation, lifecycle, and state handling</li>
-                            <li>built a <strong>React Native–based SDK trial environment in 1 week</strong> to validate
-                                server-driven UI concepts and enable faster experimentation</li>
-                            <li>developed <strong>50+ reusable UI components</strong> forming a scalable, versioned
-                                component library used across multiple apps</li>
-                            <li>implemented <strong>real-time preview infrastructure</strong> — instant visualization of
-                                dashboard changes, shrinking feedback loops from days to minutes</li>
-                            <li>contributed to backend services in Go/Node.js — REST APIs, schema versioning, and
-                                runtime configuration delivery</li>
-                            <li class="sub">integrated CI/CD pipelines (Jenkins), automated builds, deployments, and
-                                environment management</li>
-                            <li class="sub">worked extensively with AWS, Firebase, Docker, and system observability for
-                                production readiness</li>
-                            <li class="sub">acted as App Manager for Digia's Preview Android APK — owning release
-                                builds, versioning, stability</li>
+                            <li>Work on the <strong>Flutter, Android, iOS and React Native SDKs</strong> that render
+                                dashboard-designed campaigns (nudges, surveys, product guides, PiP, inline stories)
+                                natively in customer apps. Built the in-app survey and product-guide experiences.</li>
+                            <li><strong>Campaign delivery analytics, end to end:</strong> SDK events with drop reasons,
+                                a ClickHouse query behind a new analytics endpoint, and a dashboard panel showing how many
+                                campaigns were triggered, shown or dropped, broken down by cause (frequency cap, blocked by
+                                another campaign).</li>
+                            <li><strong>SDK compatibility checks:</strong> the dashboard works out each campaign's minimum
+                                SDK version from a declarative capability registry and warns before a live change, and the
+                                backend filters the campaigns it sends by SDK version.</li>
+                            <li>Built the <strong>MoEngage and WebEngage integrations</strong> and contributed to CleverTap,
+                                so customers can trigger Digia campaigns from the engagement platform they already use. The
+                                tricky part was suppressing the platform's own in-app message for the same campaign so users
+                                don't see it twice.</li>
+                            <li>Started the <strong>React Native SDK</strong>: a native bridge over the Android and iOS
+                                SDKs for both the Old and New Architecture.</li>
+                            <li><strong>Testing across platforms:</strong> wrote unit tests in each core SDK (Android, iOS,
+                                Flutter) alongside <strong>Maestro end-to-end flows</strong> in the shared test kit, which
+                                runs the same campaigns on every platform and compares golden snapshots.</li>
+                        </ul>
+
+                        <div class="exp-product">Digia UI &amp; Studio <span class="exp-product-period">server-driven
+                                UI platform · aug 2023 — feb 2026</span></div>
+                        <ul class="exp-bullets">
+                            <li>Contributed to the <strong>Digia UI SDK for Flutter</strong>, which renders native UI from
+                                JSON so teams ship UI changes without an app release, cutting feature delivery time by
+                                about <strong>60–70%</strong>.</li>
+                            <li>Built the <strong>Android Jetpack Compose SDK</strong> from scratch, with the first version
+                                in 2 weeks: layout engine, modifiers, styling, actions, navigation and state.</li>
+                            <li>Built a React Native prototype SDK in a week to test server-driven UI on React Native,
+                                and developed <strong>50+ components</strong> for the shared, versioned component library.</li>
+                            <li>Worked on real-time preview of dashboard changes on a device, which shrank the feedback
+                                loop from days to minutes, and managed releases of the Preview Android app.</li>
+                            <li>Contributed Go and Node.js services for schema versioning and runtime config delivery,
+                                plus Jenkins CI/CD.</li>
                         </ul>
                         <div class="tech-pills">
                             <span class="tech-pill">flutter</span>
-                            <span class="tech-pill">dart</span>
-                            <span class="tech-pill">android</span>
                             <span class="tech-pill">kotlin</span>
                             <span class="tech-pill">jetpack compose</span>
+                            <span class="tech-pill">swift</span>
+                            <span class="tech-pill">swiftui</span>
                             <span class="tech-pill">react native</span>
+                            <span class="tech-pill">typescript</span>
                             <span class="tech-pill">go</span>
                             <span class="tech-pill">node.js</span>
+                            <span class="tech-pill">clickhouse</span>
+                            <span class="tech-pill">maestro</span>
                             <span class="tech-pill">aws</span>
-                            <span class="tech-pill">firebase</span>
-                            <span class="tech-pill">docker</span>
-                            <span class="tech-pill">jenkins</span>
                         </div>
                     </div>
 
@@ -1767,8 +1599,8 @@
                         <div class="exp-header">
                             <div class="exp-company-logo">D</div>
                             <div class="exp-company-info">
-                                <span class="exp-company-name">Local Business (via Digia)</span>
-                                <span class="exp-company-sub">Mobile Development</span>
+                                <span class="exp-company-name">Digia</span>
+                                <span class="exp-company-sub">Client apps for a local business</span>
                             </div>
                         </div>
                         <div class="exp-role">Mobile App Developer Intern</div>
@@ -1791,12 +1623,11 @@
                             </span>
                         </div>
                         <ul class="exp-bullets">
-                            <li>built, tested, and launched <strong>2 production Flutter apps</strong> end-to-end —
-                                published on Google Play Store</li>
-                            <li>implemented dynamic JSON-based UI rendering, enabling backend-controlled UI changes
-                                without app redeployment</li>
-                            <li>integrated Firebase Auth, Firestore, AWS services, and optimized API usage for
-                                performance and scalability</li>
+                            <li>Built and launched <strong>2 production Flutter apps</strong> end-to-end, both
+                                published on Google Play.</li>
+                            <li>Implemented JSON-driven UI so the backend could change screens without an app
+                                release, the idea that later became Digia UI.</li>
+                            <li>Integrated Firebase Auth, Firestore and AWS services.</li>
                         </ul>
                         <div class="tech-pills">
                             <span class="tech-pill">flutter</span>
@@ -1833,30 +1664,20 @@
                             <a href="https://github.com/HyperLocalOrg/answerrank" target="_blank" class="proj-link">↗
                             </a>
                         </div>
-                        <div class="proj-period">AEO Diagnostic · AI Search Ranking System</div>
+                        <div class="proj-period">AEO diagnostic · LLM recommendation tracking</div>
 
                         <div class="proj-desc">
-                            Built an AEO (Answer Engine Optimization) diagnostic tool that evaluates how products rank
-                            across AI search systems (Claude, Gemini) for real buyer queries.
-                            Designed a multi-model evaluation pipeline using structured prompting to simulate top-5
-                            recommendations and compute ranking, visibility, and competitive positioning.
-                            Implemented structured prompting + response normalization to ensure consistent outputs
-                            across
-                            different AI systems.
-                            Built an insight generation system to surface buyer decision criteria, missing signals, and
-                            reasons for loss against competitors.
-                            Added a caching layer (12-hour TTL) to reduce API cost and improve response latency for
-                            repeated queries. Delivered actionable competitive ranking reports.
+                            Checks how often a product gets recommended when Claude and Gemini are asked real buyer
+                            questions. It asks each model for its top 5 picks, normalises the answers, and reports where
+                            the product shows up against competitors and which criteria the models cite. Answers are
+                            cached for 12 hours to keep API cost down.
                         </div>
 
                         <div class="tech-pills">
-                            <span class="tech-pill">llm</span>
                             <span class="tech-pill">claude api</span>
                             <span class="tech-pill">gemini api</span>
-                            <span class="tech-pill">structured prompting</span>
-                            <span class="tech-pill">aeo</span>
+                            <span class="tech-pill">llm</span>
                             <span class="tech-pill">caching</span>
-                            <span class="tech-pill">competitive analysis</span>
                         </div>
                     </div>
 
@@ -1876,61 +1697,24 @@
                                 ↗
                             </a>
                         </div>
-                        <div class="proj-period">AI-Powered Trading Behavior Analysis</div>
+                        <div class="proj-period">Trading behaviour analysis</div>
 
                         <div class="proj-desc">
-                            Built a hybrid AI system to analyze trading behavior and detect inefficiencies using market
-                            data.
-                            Engineered backend services to compute key metrics like win rate, risk-reward ratio, and
-                            holding time.
-                            Implemented MFE/MAE-based analysis to identify early exits and poor stop-loss strategies.
-                            Leveraged research-backed ML algorithms (K-Means, decision trees) inspired by behavioral
-                            finance studies for trader segmentation.
-                            Identified patterns like overtrading and early exits to improve decision-making insights.
-                            Integrated LLM-based insights to generate actionable coaching recommendations.
+                            Analyses a trader's history to find habits that cost money, such as exiting winners early or
+                            overtrading. A Go backend computes win rate, risk-reward, holding time and MFE/MAE per trade,
+                            and K-means clustering groups traders by behaviour. An LLM turns the findings into
+                            plain-language coaching.
                         </div>
 
                         <div class="tech-pills">
                             <span class="tech-pill">go</span>
-                            <span class="tech-pill">machine learning</span>
                             <span class="tech-pill">scikit-learn</span>
-                            <span class="tech-pill">system design</span>
-                            <span class="tech-pill">data analysis</span>
+                            <span class="tech-pill">k-means</span>
                             <span class="tech-pill">llm</span>
                             <span class="tech-pill">docker</span>
-                            <span class="tech-pill">react native</span>
                         </div>
                     </div>
 
-                    <div class="proj-card">
-                        <div class="proj-header">
-                            <div class="proj-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                                    <polyline points="9 22 9 12 15 12 15 22" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="proj-name">Airspace <a href="https://github.com/Ramsthr/AirSpace" target="_blank"
-                                class="proj-link">
-                                ↗
-                            </a></div>
-                        <div class="proj-period">Hotel &amp; Guest Booking Backend</div>
-                        <div class="proj-desc">
-                            Designed and implemented backend services for a hotel / guest booking system. Modeled core
-                            domain entities: Host, Customer, Property, Booking, History, Ratings. Built REST APIs for
-                            onboarding, search, booking lifecycle, history tracking, and role-based access control.
-                            Focused on clean architecture, scalability, and production-ready design.
-                        </div>
-                        <div class="tech-pills">
-                            <span class="tech-pill">go</span>
-                            <span class="tech-pill">rest apis</span>
-                            <span class="tech-pill">system design</span>
-                            <span class="tech-pill">sql</span>
-                            <span class="tech-pill">clean architecture</span>
-                        </div>
-                    </div>
                     <div class="proj-card">
                         <div class="proj-header">
                             <div class="proj-icon">
@@ -1947,31 +1731,23 @@
                                 class="proj-link">
                                 ↗
                             </a></div>
-                        <div class="proj-period">Full-Stack AI-Powered Portfolio Platform</div>
+                        <div class="proj-period">AI portfolio platform</div>
                         <div class="proj-desc">
-                            Built an end-to-end portfolio platform with AI-powered features, covering frontend, backend,
-                            and infrastructure.
-                            Designed scalable backend services in Go including Auth, Profile, AI (RAG-based chat), and
-                            Resume processing.
-                            Developed frontend interface for portfolio rendering and AI interaction workflows.
-                            Implemented JWT authentication, API gateway patterns, and rate limiting for secure access.
-                            Built resume ingestion pipeline with PDF parsing, text extraction, and vector embeddings for
-                            semantic search.
-                            Integrated Qdrant vector database to enable context-aware AI chat over user data.
-                            Architected system using MongoDB, vector storage, and modular service design for
-                            scalability.
+                            A portfolio site where visitors can ask an AI about the owner's resume. I built the Go
+                            services: JWT auth, profiles, and a pipeline that parses an uploaded PDF resume, embeds it in
+                            Qdrant and answers questions with retrieval-augmented generation. Profiles live in MongoDB,
+                            behind a rate-limited gateway.
                         </div>
                         <div class="tech-pills">
                             <span class="tech-pill">go</span>
-                            <span class="tech-pill">frontend</span>
-                            <span class="tech-pill">full stack</span>
                             <span class="tech-pill">rag</span>
                             <span class="tech-pill">qdrant</span>
                             <span class="tech-pill">mongodb</span>
                             <span class="tech-pill">jwt</span>
-                            <span class="tech-pill">system design</span>
                         </div>
                     </div>
+
+
 
 
                     <div class="proj-card">
@@ -1986,20 +1762,56 @@
                             </div>
                         </div>
                         <div class="proj-name">Unigets</div>
-                        <div class="proj-period">D2C / Affiliate Commerce Platform</div>
+                        <div class="proj-period">D2C / affiliate commerce</div>
                         <div class="proj-desc">
-                            Built a platform to sell trending products via external websites and Instagram ad funnels.
-                            Implemented product discovery, redirection flows, and basic conversion tracking. Enabled
-                            rapid experimentation with landing pages and demand validation.
+                            A storefront for trending products sold through Instagram ad funnels and partner sites. Built
+                            product discovery, redirect flows and basic conversion tracking in Node.js, so new landing
+                            pages could be tested quickly.
                         </div>
                         <div class="tech-pills">
                             <span class="tech-pill">node.js</span>
                             <span class="tech-pill">javascript</span>
-                            <span class="tech-pill">rest apis</span>
-                            <span class="tech-pill">tracking</span>
                         </div>
                     </div>
+                </div>
+            </section>
 
+            <!-- ── STACK ── -->
+            <section class="section reveal" id="stack">
+                <h2 class="section-title">Stack</h2>
+                <div class="stack-categories">
+                    <div>
+                        <div class="stack-cat-label">Mobile SDKs</div>
+                        <div class="stack-grid">
+                            <span class="stack-pill"><i class="devicon-flutter-plain colored"></i> Flutter / Dart</span>
+                            <span class="stack-pill"><i class="devicon-kotlin-plain colored"></i> Kotlin</span>
+                            <span class="stack-pill"><i class="devicon-jetpackcompose-plain colored"></i> Jetpack Compose</span>
+                            <span class="stack-pill"><i class="devicon-swift-plain colored"></i> Swift / SwiftUI</span>
+                            <span class="stack-pill"><i class="devicon-react-original colored"></i> React Native</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="stack-cat-label">Backend &amp; data</div>
+                        <div class="stack-grid">
+                            <span class="stack-pill"><i class="devicon-go-original-wordmark colored"></i> Go</span>
+                            <span class="stack-pill"><i class="devicon-nodejs-plain colored"></i> Node.js</span>
+                            <span class="stack-pill"><i class="devicon-typescript-plain colored"></i> TypeScript</span>
+                            <span class="stack-pill">ClickHouse</span>
+                            <span class="stack-pill"><i class="devicon-postgresql-plain colored"></i> SQL</span>
+                            <span class="stack-pill"><i class="devicon-mongodb-plain colored"></i> MongoDB</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="stack-cat-label">Web, infra &amp; testing</div>
+                        <div class="stack-grid">
+                            <span class="stack-pill"><i class="devicon-react-original colored"></i> React</span>
+                            <span class="stack-pill"><i class="devicon-amazonwebservices-plain-wordmark colored"></i> AWS</span>
+                            <span class="stack-pill"><i class="devicon-firebase-plain colored"></i> Firebase</span>
+                            <span class="stack-pill"><i class="devicon-docker-plain colored"></i> Docker</span>
+                            <span class="stack-pill"><i class="devicon-jenkins-line colored"></i> Jenkins</span>
+                            <span class="stack-pill">Maestro</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -2025,10 +1837,10 @@
             <section class="section reveal" id="contact">
                 <h2 class="section-title">Contact</h2>
                 <div class="contact-heading">Let's build something great together.</div>
-                <div class="contact-subtext">Open to full-time roles in SDK engineering, mobile platform, and systems
+                <div class="contact-subtext">Based in India. Open to full-time roles in SDK engineering, mobile platform, and systems
                     development.</div>
                 <div class="contact-links">
-                    <a class="contact-link" href="https://github.com/ramlalsuthar03" target="_blank" rel="noopener">
+                    <a class="contact-link" href="https://github.com/Ramsthr" target="_blank" rel="noopener">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                             <path
                                 d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.8-.26.8-.57v-2.23c-3.34.72-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 6.8c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
@@ -2050,32 +1862,12 @@
                         </svg>
                         Email
                     </a>
-                    <a class="contact-link" href="tel:+917232841614">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.8">
-                            <path
-                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-                        </svg>
-                        Phone
-                    </a>
-                    <!-- <a class="contact-link" href="https://digia.tech" target="_blank" rel="noopener">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.8">
-                            <circle cx="12" cy="12" r="10" />
-                            <line x1="2" y1="12" x2="22" y2="12" />
-                            <path
-                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                        </svg>
-                        digia.tech
-                    </a> -->
                 </div>
             </section>
 
             <!-- Footer -->
             <footer>
-                <!-- <span>inspired by <a href="https://nishchay17.com" target="_blank"
-                        rel="noopener">nishchay17.com</a></span> -->
-                <span>built by <a href="https://github.com/ramlalsuthar03" target="_blank" rel="noopener">ramlal
+                <span>built by <a href="https://github.com/Ramsthr" target="_blank" rel="noopener">ramlal
                         suthar</a></span>
             </footer>
 
@@ -2120,15 +1912,32 @@
             if (e.key === 'Escape') closeCmd();
         });
         cmdInput.addEventListener('input', e => filterCmdItems(e.target.value.toLowerCase()));
+        function visibleCmdItems() { return [...itemsList.querySelectorAll('.cmd-item')].filter(el => el.style.display !== 'none'); }
+        function selectCmd(i) {
+            const items = visibleCmdItems();
+            items.forEach(el => el.classList.remove('selected'));
+            if (!items.length) return;
+            const el = items[(i + items.length) % items.length];
+            el.classList.add('selected');
+            el.scrollIntoView({ block: 'nearest' });
+        }
+        cmdInput.addEventListener('keydown', e => {
+            const items = visibleCmdItems();
+            const cur = items.findIndex(el => el.classList.contains('selected'));
+            if (e.key === 'ArrowDown') { e.preventDefault(); selectCmd(cur + 1); }
+            else if (e.key === 'ArrowUp') { e.preventDefault(); selectCmd(cur < 0 ? -1 : cur - 1); }
+            else if (e.key === 'Enter') { e.preventDefault(); (items[cur] || items[0])?.click(); }
+        });
         function filterCmdItems(q) {
             itemsList.querySelectorAll('.cmd-item').forEach(el => {
                 el.style.display = el.textContent.trim().toLowerCase().includes(q) ? '' : 'none';
             });
+            selectCmd(0);
         }
         itemsList.querySelectorAll('.cmd-item[data-href]').forEach(el => {
             el.addEventListener('click', () => {
                 const href = el.dataset.href;
-                if (href.startsWith('mailto:') || href.startsWith('http')) { window.open(href, '_blank'); }
+                if (href.startsWith('mailto:') || href.startsWith('http') || href.endsWith('.pdf')) { window.open(href, '_blank'); }
                 else { window.location.hash = href; }
                 closeCmd();
             });
